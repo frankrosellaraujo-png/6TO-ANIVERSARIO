@@ -1,2342 +1,1001 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-<meta
-name="theme-color"
-content="#24091c">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#24091c">
 
 <title>Kory ❤️ | 6 meses de nosotros</title>
 
 <style>
-
-:root{
-    --fondo1:#10040c;
-    --fondo2:#2d0a22;
-    --fondo3:#611740;
-
-    --rosa:#e6457d;
-    --rosa2:#a72053;
-
-    --rosa-claro:#ffd2e2;
-    --texto:#edc6d6;
-
-    --papel:#fff9f4;
-}
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-
-    min-height:100vh;
-    min-height:100svh;
-
-    overflow-x:hidden;
-
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-    color:white;
-
-    background:
-
-    radial-gradient(
-        circle at 50% -5%,
-        rgba(255,92,153,.18),
-        transparent 35%
-    ),
-
-    linear-gradient(
-        165deg,
-        var(--fondo1),
-        var(--fondo2) 52%,
-        var(--fondo3)
-    );
-
-    -webkit-tap-highlight-color:
-    transparent;
-
+  min-height:100vh;
+  min-height:100svh;
+  overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  background:
+    radial-gradient(circle at 50% -5%,rgba(255,92,153,.18),transparent 35%),
+    linear-gradient(165deg,#10040c,#2d0a22 52%,#611740);
+  -webkit-tap-highlight-color:transparent;
 }
 
 button{
-    font-family:inherit;
+  font-family:inherit;
 }
 
-
-/* =========================================================
-   ESTRELLAS
-========================================================= */
+/* FONDO */
 
 #estrellas{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:0;
-
-    pointer-events:none;
-
-    overflow:hidden;
-
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
 }
 
 .estrella{
-
-    position:absolute;
-
-    border-radius:50%;
-
-    background:white;
-
-    box-shadow:
-    0 0 6px
-    rgba(255,255,255,.55);
-
-    animation:
-    parpadear
-    4s
-    infinite
-    ease-in-out;
-
+  position:absolute;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 6px rgba(255,255,255,.55);
+  animation:parpadear 4s infinite ease-in-out;
 }
 
 @keyframes parpadear{
-
-    0%,100%{
-        opacity:.10;
-    }
-
-    50%{
-        opacity:.65;
-    }
-
+  0%,100%{opacity:.1}
+  50%{opacity:.65}
 }
 
-
-/* =========================================================
-   PÉTALOS
-========================================================= */
+/* PÉTALOS */
 
 .petalo{
-
-    position:fixed;
-
-    top:-45px;
-
-    z-index:30;
-
-    pointer-events:none;
-
-    animation:
-    caerPetalo
-    linear
-    forwards;
-
+  position:fixed;
+  top:-45px;
+  z-index:30;
+  pointer-events:none;
+  animation:caerPetalo linear forwards;
 }
 
 @keyframes caerPetalo{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-        translateY(-45px)
-        rotate(0deg);
-
-    }
-
-    15%{
-
-        opacity:.65;
-
-    }
-
-    100%{
-
-        opacity:0;
-
-        transform:
-        translateY(110svh)
-        translateX(45px)
-        rotate(400deg);
-
-    }
-
+  0%{
+    opacity:0;
+    transform:translateY(-45px) rotate(0deg);
+  }
+  15%{opacity:.65}
+  100%{
+    opacity:0;
+    transform:translateY(110svh) translateX(45px) rotate(400deg);
+  }
 }
 
-
-/* =========================================================
-   CORAZONES
-========================================================= */
+/* CORAZONES */
 
 .corazonFlotante{
-
-    position:fixed;
-
-    bottom:-50px;
-
-    z-index:999;
-
-    pointer-events:none;
-
-    animation:
-    subirCorazon
-    linear
-    forwards;
-
+  position:fixed;
+  bottom:-50px;
+  z-index:999;
+  pointer-events:none;
+  animation:subirCorazon linear forwards;
 }
 
 @keyframes subirCorazon{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-        translateY(0)
-        rotate(0);
-
-    }
-
-    12%{
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        opacity:0;
-
-        transform:
-        translateY(-120svh)
-        rotate(360deg);
-
-    }
-
+  0%{
+    opacity:0;
+    transform:translateY(0) rotate(0);
+  }
+  12%{opacity:1}
+  100%{
+    opacity:0;
+    transform:translateY(-120svh) rotate(360deg);
+  }
 }
 
-
-/* =========================================================
-   PANTALLA
-========================================================= */
+/* PANTALLAS */
 
 .pantalla{
-
-    position:relative;
-
-    z-index:5;
-
-    width:100%;
-
-    min-height:100vh;
-    min-height:100svh;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    padding:
-
-    calc(
-        24px +
-        env(safe-area-inset-top)
-    )
-
+  position:relative;
+  z-index:5;
+  width:100%;
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:
+    calc(24px + env(safe-area-inset-top))
     18px
-
-    calc(
-        30px +
-        env(safe-area-inset-bottom)
-    );
-
+    calc(30px + env(safe-area-inset-bottom));
 }
 
-
-/* =========================================================
-   BLOQUEO
-========================================================= */
+/* BLOQUEO */
 
 #bloqueo{
-
-    display:none;
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:2000;
-
-    background:
-
-    radial-gradient(
-        circle at center,
-        rgba(255,82,149,.16),
-        transparent 43%
-    ),
-
-    linear-gradient(
-        160deg,
-        #10040c,
-        #351027,
-        #621840
-    );
-
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:
+    radial-gradient(circle at center,rgba(255,82,149,.16),transparent 43%),
+    linear-gradient(160deg,#10040c,#351027,#621840);
 }
 
 .bloqueoContenido{
-
-    width:100%;
-
-    max-width:420px;
-
-    text-align:center;
-
+  width:100%;
+  max-width:420px;
+  text-align:center;
 }
 
 .candado{
-
-    width:78px;
-
-    height:78px;
-
-    margin:auto;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:
-    rgba(255,255,255,.07);
-
-    border:
-    1px solid
-    rgba(255,255,255,.11);
-
+  width:78px;
+  height:78px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.11);
+  background:rgba(255,255,255,.07);
+  box-shadow:0 0 35px rgba(255,74,140,.2);
+  animation:latido 1.6s infinite;
 }
 
 .candado svg{
-
-    width:38px;
-
-    height:38px;
-
-    stroke:#ffd4e3;
-
+  width:38px;
+  height:38px;
+  stroke:#ffd4e3;
 }
 
 .bloqueoContenido h1{
-
-    margin-top:22px;
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-size:
-    clamp(
-        2.8rem,
-        14vw,
-        4.6rem
-    );
-
-    color:#ffd4e4;
-
+  margin-top:22px;
+  font-family:Georgia,serif;
+  font-size:clamp(2.8rem,14vw,4.6rem);
+  color:#ffd4e4;
 }
 
 .bloqueoContenido p{
-
-    margin-top:24px;
-
-    color:#edc5d6;
-
-    line-height:1.75;
-
+  margin-top:24px;
+  color:#edc5d6;
+  line-height:1.75;
 }
 
 #contadorApertura{
-
-    margin-top:28px;
-
-    padding:18px 12px;
-
-    border-radius:20px;
-
-    border:
-    1px solid
-    rgba(255,255,255,.10);
-
-    background:
-    rgba(255,255,255,.065);
-
-    line-height:1.7;
-
-    font-weight:bold;
-
+  margin-top:28px;
+  padding:20px 12px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.065);
+  line-height:1.7;
+  font-weight:bold;
 }
 
-
-/* =========================================================
-   PORTADA
-========================================================= */
+/* PORTADA */
 
 #inicio{
-
-    text-align:center;
-
+  text-align:center;
 }
 
 .portada{
-
-    width:100%;
-
-    max-width:430px;
-
+  width:100%;
+  max-width:430px;
 }
 
 .fechaPortada{
-
-    margin-bottom:14px;
-
-    font-size:.72rem;
-
-    letter-spacing:3px;
-
-    color:#d895b1;
-
+  margin-bottom:14px;
+  color:#d895b1;
+  font-size:.72rem;
+  letter-spacing:3px;
 }
 
 .portada h1{
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-size:
-    clamp(
-        3.6rem,
-        18vw,
-        5.7rem
-    );
-
-    line-height:1;
-
-    color:#ffd4e4;
-
-    text-shadow:
-
-    0 0 25px
-    rgba(255,69,141,.42);
-
+  font-family:Georgia,serif;
+  font-size:clamp(3.6rem,18vw,5.7rem);
+  line-height:1;
+  color:#ffd4e4;
+  text-shadow:0 0 25px rgba(255,69,141,.42);
 }
 
 .portadaTexto{
-
-    margin-top:21px;
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-style:italic;
-
-    font-size:1.08rem;
-
-    line-height:1.75;
-
-    color:#efbfd2;
-
+  margin-top:21px;
+  color:#efbfd2;
+  font-family:Georgia,serif;
+  font-size:1.08rem;
+  font-style:italic;
+  line-height:1.75;
 }
 
-#avisoPrueba{
-
-    margin-top:16px;
-
-    padding:8px 12px;
-
-    display:inline-block;
-
-    border-radius:999px;
-
-    border:
-    1px solid
-    rgba(255,255,255,.09);
-
-    color:#cb91a9;
-
-    font-size:.70rem;
-
-}
-
-
-/* =========================================================
-   SOBRE
-========================================================= */
+/* SOBRE */
 
 .sobreZona{
-
-    margin-top:55px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
+  margin-top:55px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .sobre{
-
-    position:relative;
-
-    width:
-    min(
-        79vw,
-        300px
-    );
-
-    height:
-    min(
-        52vw,
-        195px
-    );
-
-    min-height:170px;
-
-    max-height:195px;
-
-    cursor:pointer;
-
-    perspective:1000px;
-
-    filter:
-
-    drop-shadow(
-        0 25px 30px
-        rgba(0,0,0,.40)
-    );
-
-    animation:
-    flotar
-    3s
-    infinite
-    ease-in-out;
-
+  position:relative;
+  width:min(79vw,300px);
+  height:min(52vw,195px);
+  min-height:170px;
+  max-height:195px;
+  cursor:pointer;
+  perspective:1000px;
+  filter:drop-shadow(0 25px 30px rgba(0,0,0,.4));
+  animation:flotar 3s infinite ease-in-out;
 }
 
 .sobreFondo{
-
-    position:absolute;
-
-    inset:0;
-
-    overflow:hidden;
-
-    border-radius:10px;
-
-    background:#e997b2;
-
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  border-radius:10px;
+  background:#e997b2;
 }
 
 .sobreFondo::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:#f4bfd0;
-
-    clip-path:
-
-    polygon(
-        0 0,
-        50% 59%,
-        100% 0
-    );
-
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#f4bfd0;
+  clip-path:polygon(0 0,50% 59%,100% 0);
 }
 
 .sobreFondo::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:3;
-
-    background:#dd84a3;
-
-    clip-path:
-
-    polygon(
-        0 100%,
-        0 34%,
-        50% 68%,
-        100% 34%,
-        100% 100%
-    );
-
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:3;
+  background:#dd84a3;
+  clip-path:polygon(0 100%,0 34%,50% 68%,100% 34%,100% 100%);
 }
 
 .tapa{
-
-    position:absolute;
-
-    z-index:7;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    height:58%;
-
-    background:#ffd0de;
-
-    clip-path:
-
-    polygon(
-        0 0,
-        100% 0,
-        50% 100%
-    );
-
-    transform-origin:top;
-
-    transition:
-
-    transform
-    .85s
-    cubic-bezier(.2,.75,.2,1);
-
+  position:absolute;
+  z-index:7;
+  top:0;
+  left:0;
+  width:100%;
+  height:58%;
+  background:#ffd0de;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top;
+  transition:transform .85s cubic-bezier(.2,.75,.2,1);
 }
 
 .sello{
-
-    position:absolute;
-
-    z-index:10;
-
-    left:50%;
-
-    top:47%;
-
-    width:55px;
-
-    height:55px;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    border-radius:50%;
-
-    transform:
-    translate(-50%,-50%);
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #e83b75,
-        #a3194d
-    );
-
-    box-shadow:
-
-    0 0 0 7px
-    rgba(255,255,255,.12),
-
-    0 0 30px
-    rgba(232,59,117,.40);
-
-    transition:
-    opacity
-    .25s;
-
-    animation:
-    latidoSello
-    1.25s
-    infinite;
-
+  position:absolute;
+  z-index:10;
+  left:50%;
+  top:47%;
+  width:55px;
+  height:55px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:linear-gradient(135deg,#e83b75,#a3194d);
+  box-shadow:
+    0 0 0 7px rgba(255,255,255,.12),
+    0 0 30px rgba(232,59,117,.4);
+  transition:opacity .25s;
+  animation:latidoSello 1.25s infinite;
 }
 
 .sello svg{
-
-    width:28px;
-
-    height:28px;
-
-    fill:white;
-
+  width:28px;
+  height:28px;
+  fill:#fff;
 }
 
 .sobre.abierto{
-
-    animation:none;
-
+  animation:none;
 }
 
 .sobre.abierto .tapa{
-
-    transform:
-    rotateX(180deg);
-
+  transform:rotateX(180deg);
 }
 
 .sobre.abierto .sello{
-
-    opacity:0;
-
+  opacity:0;
 }
 
 .abreme{
-
-    margin-top:27px;
-
-    color:#ffd3e3;
-
-    font-size:1.08rem;
-
-    font-weight:bold;
-
-    letter-spacing:4px;
-
-    animation:
-    brilloTexto
-    2s
-    infinite;
-
+  margin-top:27px;
+  color:#ffd3e3;
+  font-size:1.08rem;
+  font-weight:bold;
+  letter-spacing:4px;
+  animation:brilloTexto 2s infinite;
 }
 
 .toca{
-
-    margin-top:7px;
-
-    color:#ba8098;
-
-    font-size:.74rem;
-
+  margin-top:7px;
+  color:#ba8098;
+  font-size:.74rem;
 }
 
-
-/* =========================================================
-   CONTENIDO
-========================================================= */
+/* CONTENIDO */
 
 #contenido{
-
-    display:none;
-
-    position:relative;
-
-    z-index:5;
-
+  display:none;
+  position:relative;
+  z-index:5;
 }
 
 .seccion{
-
-    padding:
-
-    78px
-    16px;
-
-    text-align:center;
-
+  padding:78px 16px;
+  text-align:center;
 }
 
 .titulo{
-
-    font-family:
-    Georgia,
-    serif;
-
-    color:#ffd0e0;
-
-    font-size:
-
-    clamp(
-        2.15rem,
-        10.5vw,
-        3.7rem
-    );
-
-    line-height:1.15;
-
+  color:#ffd0e0;
+  font-family:Georgia,serif;
+  font-size:clamp(2.15rem,10.5vw,3.7rem);
+  line-height:1.15;
 }
 
 .subtitulo{
-
-    max-width:620px;
-
-    margin:
-
-    17px
-    auto
-    40px;
-
-    color:#dfadbf;
-
-    line-height:1.75;
-
+  max-width:620px;
+  margin:17px auto 40px;
+  color:#dfadbf;
+  line-height:1.75;
 }
 
-
-/* =========================================================
-   CARTA
-========================================================= */
+/* CARTA */
 
 .cartaSeccion{
-
-    min-height:100vh;
-
-    min-height:100svh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:
-
-    15px
-    10px
-    30px;
-
+  min-height:100svh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:15px 10px 30px;
 }
 
 .carta{
-
-    position:relative;
-
-    width:100%;
-
-    max-width:640px;
-
-    max-height:90vh;
-
-    max-height:90svh;
-
-    overflow-y:auto;
-
-    padding:
-
-    36px
-    21px
-    40px;
-
-    border-radius:18px;
-
-    color:#4d2937;
-
-    background:
-
+  position:relative;
+  width:100%;
+  max-width:640px;
+  max-height:90svh;
+  overflow-y:auto;
+  padding:36px 21px 40px;
+  border-radius:18px;
+  color:#4d2937;
+  background:
     repeating-linear-gradient(
-
-        0deg,
-
-        rgba(255,249,244,.99),
-
-        rgba(255,249,244,.99)
-        31px,
-
-        rgba(188,119,142,.07)
-        32px
-
+      0deg,
+      rgba(255,249,244,.99),
+      rgba(255,249,244,.99) 31px,
+      rgba(188,119,142,.07) 32px
     );
-
-    box-shadow:
-
-    0 25px 60px
-    rgba(0,0,0,.42);
-
-    -webkit-overflow-scrolling:
-    touch;
-
+  box-shadow:0 25px 60px rgba(0,0,0,.42);
+  -webkit-overflow-scrolling:touch;
 }
 
 .carta::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:8px;
-
-    border:
-
-    1px solid
-    rgba(156,69,100,.15);
-
-    border-radius:12px;
-
-    pointer-events:none;
-
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1px solid rgba(156,69,100,.15);
+  border-radius:12px;
+  pointer-events:none;
 }
 
 .carta h2{
-
-    text-align:center;
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-size:
-
-    clamp(
-        2.4rem,
-        12vw,
-        3.7rem
-    );
-
-    color:#9f2453;
-
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:clamp(2.4rem,12vw,3.7rem);
+  color:#9f2453;
 }
 
 .fechaCarta{
-
-    margin-top:11px;
-
-    text-align:center;
-
-    color:#9c697a;
-
-    font-size:.76rem;
-
-    letter-spacing:1px;
-
+  margin-top:11px;
+  text-align:center;
+  color:#9c697a;
+  font-size:.76rem;
+  letter-spacing:1px;
 }
 
 .separador{
-
-    margin:
-
-    23px
-    0;
-
-    text-align:center;
-
-    color:#bd426e;
-
-    letter-spacing:8px;
-
+  margin:23px 0;
+  text-align:center;
+  color:#bd426e;
+  letter-spacing:8px;
 }
 
 .carta p{
-
-    margin-bottom:20px;
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-size:1.04rem;
-
-    line-height:1.85;
-
-    text-align:left;
-
+  margin-bottom:20px;
+  font-family:Georgia,serif;
+  font-size:1.04rem;
+  line-height:1.85;
+  text-align:left;
 }
 
 .carta p:first-of-type::first-letter{
-
-    float:left;
-
-    margin:
-
-    4px
-    7px
-    0
-    0;
-
-    color:#a72456;
-
-    font-size:3.4rem;
-
-    line-height:.8;
-
+  float:left;
+  margin:4px 7px 0 0;
+  color:#a72456;
+  font-size:3.4rem;
+  line-height:.8;
 }
 
 .destacado{
-
-    margin:
-
-    28px
-    0!important;
-
-    text-align:center!important;
-
-    color:#a42355;
-
-    font-weight:bold;
-
-    font-size:1.20rem!important;
-
+  margin:28px 0!important;
+  text-align:center!important;
+  color:#a42355;
+  font-size:1.2rem!important;
+  font-weight:bold;
 }
 
 .firma{
-
-    margin-top:32px;
-
-    text-align:right;
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-style:italic;
-
-    color:#93214c;
-
-    line-height:1.7;
-
+  margin-top:32px;
+  text-align:right;
+  color:#93214c;
+  font-family:Georgia,serif;
+  font-style:italic;
+  line-height:1.7;
 }
 
-
-/* =========================================================
-   BOTONES
-========================================================= */
+/* BOTONES */
 
 .boton{
-
-    width:100%;
-
-    max-width:420px;
-
-    min-height:52px;
-
-    margin:
-
-    8px
-    auto;
-
-    padding:
-
-    14px
-    20px;
-
-    border:0;
-
-    border-radius:999px;
-
-    color:white;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #e4477e,
-        #a52356
-    );
-
-    box-shadow:
-
-    0 10px 25px
-    rgba(224,55,116,.25);
-
-    font-size:.97rem;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    touch-action:manipulation;
-
+  width:100%;
+  max-width:420px;
+  min-height:52px;
+  margin:8px auto;
+  padding:14px 20px;
+  border:0;
+  border-radius:999px;
+  color:#fff;
+  background:linear-gradient(135deg,#e4477e,#a52356);
+  box-shadow:0 10px 25px rgba(224,55,116,.25);
+  font-size:.97rem;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 .boton:active{
-
-    transform:
-    scale(.97);
-
+  transform:scale(.97);
 }
 
-
-/* =========================================================
-   TIEMPO JUNTOS
-========================================================= */
+/* CONTADOR DE RELACIÓN */
 
 .contadorRelacion{
-
-    max-width:620px;
-
-    margin:auto;
-
+  max-width:620px;
+  margin:auto;
 }
 
 .corazonContador{
-
-    width:70px;
-
-    height:70px;
-
-    margin:
-
-    0 auto
-    24px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #e84079,
-        #a01f50
-    );
-
-    box-shadow:
-
-    0 0 0 8px
-    rgba(255,255,255,.05),
-
-    0 0 35px
-    rgba(232,64,121,.30);
-
-    animation:
-    latido
-    1.6s
-    infinite;
-
+  width:70px;
+  height:70px;
+  margin:0 auto 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:linear-gradient(135deg,#e84079,#a01f50);
+  box-shadow:
+    0 0 0 8px rgba(255,255,255,.05),
+    0 0 35px rgba(232,64,121,.3);
+  animation:latido 1.6s infinite;
 }
 
 .corazonContador svg{
-
-    width:34px;
-
-    height:34px;
-
-    fill:white;
-
+  width:34px;
+  height:34px;
+  fill:#fff;
 }
 
 .tiempoGrid{
-
-    display:grid;
-
-    grid-template-columns:
-
-    repeat(
-        2,
-        minmax(0,1fr)
-    );
-
-    gap:11px;
-
-    margin-top:28px;
-
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:11px;
+  margin-top:28px;
 }
 
 .tiempoCard{
-
-    padding:
-
-    20px
-    7px;
-
-    border-radius:18px;
-
-    border:
-
-    1px solid
-    rgba(255,255,255,.10);
-
-    background:
-
-    rgba(255,255,255,.065);
-
-    backdrop-filter:
-    blur(6px);
-
+  padding:20px 7px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.065);
+  backdrop-filter:blur(6px);
 }
 
 .numeroTiempo{
-
-    display:block;
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-size:
-
-    clamp(
-        2rem,
-        10vw,
-        3rem
-    );
-
-    color:#ffd0df;
-
-    font-weight:bold;
-
-    font-variant-numeric:
-    tabular-nums;
-
+  display:block;
+  color:#ffd0df;
+  font-family:Georgia,serif;
+  font-size:clamp(2rem,10vw,3rem);
+  font-weight:bold;
+  font-variant-numeric:tabular-nums;
 }
 
 .etiquetaTiempo{
-
-    display:block;
-
-    margin-top:5px;
-
-    color:#c78fa6;
-
-    font-size:.65rem;
-
-    letter-spacing:1.2px;
-
-    text-transform:uppercase;
-
+  display:block;
+  margin-top:5px;
+  color:#c78fa6;
+  font-size:.65rem;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
 }
 
 .segundos{
-
-    grid-column:
-    1 / -1;
-
+  grid-column:1/-1;
 }
 
 .fechaInicio{
-
-    margin-top:26px;
-
-    color:#dcaec0;
-
-    font-size:.88rem;
-
+  margin-top:26px;
+  color:#dcaec0;
+  font-size:.88rem;
 }
 
 .fraseContador{
-
-    margin-top:12px;
-
-    color:#ffd0df;
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-style:italic;
-
+  margin-top:12px;
+  color:#ffd0df;
+  font-family:Georgia,serif;
+  font-style:italic;
 }
 
 .barraFondo{
-
-    height:7px;
-
-    margin-top:27px;
-
-    overflow:hidden;
-
-    border-radius:999px;
-
-    background:
-
-    rgba(255,255,255,.08);
-
+  height:7px;
+  margin-top:27px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
 }
 
 #barraMes{
-
-    width:0%;
-
-    height:100%;
-
-    border-radius:999px;
-
-    background:
-
-    linear-gradient(
-        90deg,
-        #d13971,
-        #ff82ae
-    );
-
-    transition:
-    width
-    .6s;
-
+  width:0%;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#d13971,#ff82ae);
+  transition:width .6s;
 }
 
 #textoProgreso{
-
-    margin-top:9px;
-
-    color:#b77f96;
-
-    font-size:.70rem;
-
+  margin-top:9px;
+  color:#b77f96;
+  font-size:.7rem;
 }
 
-
-/* =========================================================
-   6 MESES
-========================================================= */
+/* SEIS MESES */
 
 .meses{
-
-    max-width:620px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:1fr;
-
-    gap:15px;
-
+  max-width:620px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:15px;
 }
 
 .mes{
-
-    padding:
-
-    25px
-    19px;
-
-    border-radius:20px;
-
-    border:
-
-    1px solid
-    rgba(255,255,255,.10);
-
-    background:
-
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.085),
-        rgba(255,255,255,.035)
-    );
-
+  padding:25px 19px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.1);
+  background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.035));
 }
 
 .mesNumero{
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-size:2.6rem;
-
-    font-weight:bold;
-
-    color:
-
-    rgba(
-        255,
-        184,
-        209,
-        .22
-    );
-
+  color:rgba(255,184,209,.22);
+  font-family:Georgia,serif;
+  font-size:2.6rem;
+  font-weight:bold;
 }
 
 .mes h3{
-
-    margin:
-
-    -11px
-    0
-    8px;
-
-    color:#ffd0df;
-
+  margin:-11px 0 8px;
+  color:#ffd0df;
 }
 
 .mes p{
-
-    color:#e7c3d1;
-
-    line-height:1.7;
-
+  color:#e7c3d1;
+  line-height:1.7;
 }
 
-
-/* =========================================================
-   FOTOS
-========================================================= */
+/* GALERÍA */
 
 .galeria{
-
-    width:100%;
-
-    max-width:620px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:1fr;
-
-    gap:30px;
-
+  width:100%;
+  max-width:620px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:30px;
 }
 
 .foto{
-
-    width:100%;
-
-    padding:
-
-    10px
-    10px
-    25px;
-
-    overflow:hidden;
-
-    border-radius:5px;
-
-    background:white;
-
-    color:#663448;
-
-    box-shadow:
-
-    0 18px 40px
-    rgba(0,0,0,.33);
-
+  width:100%;
+  padding:10px 10px 25px;
+  overflow:hidden;
+  border-radius:5px;
+  background:#fff;
+  color:#663448;
+  box-shadow:0 18px 40px rgba(0,0,0,.33);
 }
 
-.foto:nth-child(odd){
-
-    transform:
-    rotate(-.7deg);
-
-}
-
-.foto:nth-child(even){
-
-    transform:
-    rotate(.7deg);
-
-}
+.foto:nth-child(odd){transform:rotate(-.7deg)}
+.foto:nth-child(even){transform:rotate(.7deg)}
 
 .foto img{
-
-    display:block;
-
-    width:100%;
-
-    height:auto;
-
-    max-height:72vh;
-
-    max-height:72svh;
-
-    object-fit:contain;
-
-    background:#eee;
-
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:72svh;
+  object-fit:contain;
+  background:#eee;
 }
 
 .foto p{
-
-    margin-top:15px;
-
-    padding:
-
-    0 7px;
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-style:italic;
-
-    line-height:1.55;
-
+  margin-top:15px;
+  padding:0 7px;
+  font-family:Georgia,serif;
+  font-style:italic;
+  line-height:1.55;
 }
 
-
-/* =========================================================
-   RAZONES
-========================================================= */
+/* RAZONES */
 
 .razones{
-
-    max-width:620px;
-
-    margin:auto;
-
-    display:grid;
-
-    gap:15px;
-
+  max-width:620px;
+  margin:auto;
+  display:grid;
+  gap:15px;
 }
 
 .razon{
-
-    position:relative;
-
-    min-height:82px;
-
-    padding:
-
-    18px
-    17px
-    18px
-    69px;
-
-    overflow:hidden;
-
-    border-radius:19px;
-
-    border:
-
-    1px solid
-    rgba(255,255,255,.10);
-
-    background:
-
-    rgba(255,255,255,.06);
-
-    text-align:left;
-
-    cursor:pointer;
-
+  position:relative;
+  min-height:82px;
+  padding:18px 17px 18px 69px;
+  overflow:hidden;
+  border-radius:19px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.06);
+  text-align:left;
+  cursor:pointer;
 }
 
 .iconoRazon{
-
-    position:absolute;
-
-    left:16px;
-
-    top:18px;
-
-    width:39px;
-
-    height:39px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#da3d74;
-
+  position:absolute;
+  left:16px;
+  top:18px;
+  width:39px;
+  height:39px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#da3d74;
 }
 
 .iconoRazon svg{
-
-    width:19px;
-
-    height:19px;
-
-    fill:white;
-
+  width:19px;
+  height:19px;
+  fill:#fff;
 }
 
 .razon h3{
-
-    color:#ffd0df;
-
-    font-size:1rem;
-
-    line-height:1.35;
-
+  color:#ffd0df;
+  font-size:1rem;
+  line-height:1.35;
 }
 
 .pistaRazon{
-
-    margin-top:6px;
-
-    color:#b57c94;
-
-    font-size:.70rem;
-
+  margin-top:6px;
+  color:#b57c94;
+  font-size:.7rem;
 }
 
 .textoRazon{
-
-    max-height:0;
-
-    overflow:hidden;
-
-    opacity:0;
-
-    color:#ecc9d7;
-
-    line-height:1.7;
-
-    transition:
-
-    max-height
-    .5s,
-
-    opacity
-    .35s,
-
-    margin
-    .35s;
-
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  color:#ecc9d7;
+  line-height:1.7;
+  transition:max-height .5s,opacity .35s,margin .35s;
 }
 
 .razon.abierta .textoRazon{
-
-    max-height:300px;
-
-    margin-top:10px;
-
-    opacity:1;
-
+  max-height:300px;
+  margin-top:10px;
+  opacity:1;
 }
 
 .razon.abierta .pistaRazon{
-
-    display:none;
-
+  display:none;
 }
 
-
-/* =========================================================
-   REVELAR
-========================================================= */
+/* SCROLL */
 
 .revelar{
-
-    opacity:0;
-
-    transform:
-    translateY(28px);
-
-    transition:
-
-    opacity
-    .7s
-    ease,
-
-    transform
-    .7s
-    ease;
-
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .7s ease,transform .7s ease;
 }
 
 .revelar.visible{
-
-    opacity:1;
-
-    transform:
-    translateY(0);
-
+  opacity:1;
+  transform:translateY(0);
 }
 
-
-/* =========================================================
-   FINAL
-========================================================= */
+/* FINAL */
 
 #final{
-
-    min-height:100vh;
-
-    min-height:100svh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:
-
-    65px
-    18px;
-
-    text-align:center;
-
+  min-height:100svh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:65px 18px;
+  text-align:center;
 }
 
 .final{
-
-    width:100%;
-
-    max-width:640px;
-
+  width:100%;
+  max-width:640px;
 }
 
 .finalPequeno{
-
-    margin-bottom:18px;
-
-    color:#c88ea6;
-
-    font-size:.70rem;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
+  margin-bottom:18px;
+  color:#c88ea6;
+  font-size:.7rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 .final h2{
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-size:
-
-    clamp(
-        2.3rem,
-        11.5vw,
-        4rem
-    );
-
-    line-height:1.16;
-
-    color:#ffd0e0;
-
+  color:#ffd0e0;
+  font-family:Georgia,serif;
+  font-size:clamp(2.3rem,11.5vw,4rem);
+  line-height:1.16;
 }
 
 .final > p{
-
-    margin:
-
-    24px
-    auto;
-
-    color:#ebc3d3;
-
-    line-height:1.8;
-
+  margin:24px auto;
+  color:#ebc3d3;
+  line-height:1.8;
 }
 
 .botonesFinales{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:5px;
-
-    margin-top:25px;
-
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  margin-top:25px;
 }
 
 #sorpresa{
-
-    display:none;
-
-    margin-top:40px;
-
-    animation:
-
-    aparecer
-    .9s
-    ease;
-
+  display:none;
+  margin-top:40px;
+  animation:aparecer .9s ease;
 }
 
 #sorpresa h3{
-
-    font-family:
-    Georgia,
-    serif;
-
-    font-size:
-
-    clamp(
-        2rem,
-        10vw,
-        3.4rem
-    );
-
-    color:#ffd0df;
-
+  color:#ffd0df;
+  font-family:Georgia,serif;
+  font-size:clamp(2rem,10vw,3.4rem);
 }
 
 #sorpresa p{
-
-    margin:
-
-    22px
-    auto;
-
-    line-height:1.8;
-
-    color:#ecc5d5;
-
+  margin:22px auto;
+  color:#ecc5d5;
+  line-height:1.8;
 }
 
-
-/* =========================================================
-   BOTÓN VOLVER A CARTA
-========================================================= */
+/* VOLVER CARTA */
 
 #volverCarta{
-
-    display:none;
-
-    position:fixed;
-
-    right:13px;
-
-    bottom:
-
-    calc(
-        13px +
-        env(safe-area-inset-bottom)
-    );
-
-    z-index:900;
-
-    width:50px;
-
-    height:50px;
-
-    border:0;
-
-    border-radius:50%;
-
-    background:
-
-    rgba(
-        63,
-        14,
-        42,
-        .90
-    );
-
-    box-shadow:
-
-    0 8px 25px
-    rgba(0,0,0,.30);
-
+  display:none;
+  position:fixed;
+  right:13px;
+  bottom:calc(13px + env(safe-area-inset-bottom));
+  z-index:900;
+  width:50px;
+  height:50px;
+  border:0;
+  border-radius:50%;
+  background:rgba(63,14,42,.9);
+  box-shadow:0 8px 25px rgba(0,0,0,.3);
 }
 
 #volverCarta svg{
-
-    width:24px;
-
-    height:24px;
-
-    stroke:#ffd2e2;
-
+  width:24px;
+  height:24px;
+  stroke:#ffd2e2;
 }
 
-
-/* =========================================================
-   ANIMACIONES
-========================================================= */
+/* ANIMACIONES */
 
 @keyframes latido{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.08);
-    }
-
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
 }
 
 @keyframes latidoSello{
-
-    0%,100%{
-
-        transform:
-
-        translate(
-            -50%,
-            -50%
-        )
-
-        scale(1);
-
-    }
-
-    50%{
-
-        transform:
-
-        translate(
-            -50%,
-            -50%
-        )
-
-        scale(1.12);
-
-    }
-
+  0%,100%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-50%) scale(1.12)}
 }
 
 @keyframes flotar{
-
-    0%,100%{
-
-        transform:
-        translateY(0);
-
-    }
-
-    50%{
-
-        transform:
-        translateY(-9px);
-
-    }
-
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-9px)}
 }
 
 @keyframes brilloTexto{
-
-    0%,100%{
-
-        opacity:.65;
-
-    }
-
-    50%{
-
-        opacity:1;
-
-    }
-
+  0%,100%{opacity:.65}
+  50%{opacity:1}
 }
 
 @keyframes aparecer{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(20px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0);
-
-    }
-
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
-
-
-/* =========================================================
-   TABLET / PC
-========================================================= */
 
 @media(min-width:760px){
+  .carta{
+    padding:55px 58px;
+  }
 
-    .seccion{
+  .carta p{
+    text-align:justify;
+  }
 
-        padding:
+  .tiempoGrid{
+    grid-template-columns:repeat(5,1fr);
+  }
 
-        100px
-        24px;
+  .segundos{
+    grid-column:auto;
+  }
 
-    }
+  .meses{
+    grid-template-columns:repeat(2,1fr);
+    max-width:900px;
+  }
 
-    .carta{
+  .galeria{
+    grid-template-columns:repeat(2,1fr);
+    max-width:1000px;
+  }
 
-        padding:
+  .boton{
+    width:auto;
+    min-width:260px;
+  }
 
-        55px
-        58px;
-
-    }
-
-    .carta p{
-
-        text-align:justify;
-
-    }
-
-    .tiempoGrid{
-
-        grid-template-columns:
-
-        repeat(
-            5,
-            1fr
-        );
-
-    }
-
-    .segundos{
-
-        grid-column:auto;
-
-    }
-
-    .meses{
-
-        grid-template-columns:
-
-        repeat(
-            2,
-            1fr
-        );
-
-        max-width:900px;
-
-    }
-
-    .galeria{
-
-        grid-template-columns:
-
-        repeat(
-            2,
-            1fr
-        );
-
-        max-width:1000px;
-
-    }
-
-    .boton{
-
-        width:auto;
-
-        min-width:260px;
-
-    }
-
-    .botonesFinales{
-
-        flex-direction:row;
-
-        justify-content:center;
-
-    }
-
+  .botonesFinales{
+    flex-direction:row;
+    justify-content:center;
+  }
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =========================================================
-     MÚSICA
-
-     INVISIBLE.
-
-     SOLO COMIENZA AL TOCAR ÁBREME.
-     LOOP = SE REPITE AUTOMÁTICAMENTE.
-========================================================= -->
-
-<audio
-id="musica"
-loop
-preload="auto">
-
-<source
-src="musica/nuestra-cancion.mp3"
-type="audio/mpeg">
-
+<!-- MÚSICA INVISIBLE -->
+<audio id="musica" loop preload="auto">
+  <source src="musica/nuestra-cancion.mp3" type="audio/mpeg">
 </audio>
-
-
 
 <div id="estrellas"></div>
 
+<!-- BLOQUEO -->
 
-
-<!-- =========================================================
-     BLOQUEO
-========================================================= -->
-
-<section
-id="bloqueo"
-class="pantalla">
-
+<section id="bloqueo" class="pantalla">
 
 <div class="bloqueoContenido">
 
-
 <div class="candado">
-
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke-width="1.7">
-
-<rect
-x="5"
-y="10"
-width="14"
-height="10"
-rx="2"/>
-
-<path
-d="M8 10V7a4 4 0 0 1 8 0v3"/>
-
-<path
-d="M12 14v2"/>
-
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+<rect x="5" y="10" width="14" height="10" rx="2"/>
+<path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+<path d="M12 14v2"/>
 </svg>
-
 </div>
 
-
-<h1>
-
-Para Kory
-
-</h1>
-
+<h1>Para Kory</h1>
 
 <p>
-
 Preparé algo especialmente para ti.
-
 <br><br>
-
-Hay cosas bonitas que merecen
-esperar hasta el momento exacto.
-
+Hay cosas bonitas que merecen esperar
+hasta el momento exacto.
 </p>
 
-
 <div id="contadorApertura">
-
-Calculando...
-
+Calculando nuestro momento...
 </div>
 
-
 </div>
-
-
 </section>
 
+<!-- PORTADA -->
 
-
-<!-- =========================================================
-     PORTADA
-========================================================= -->
-
-<section
-id="inicio"
-class="pantalla">
-
+<section id="inicio" class="pantalla">
 
 <div class="portada">
 
-
 <div class="fechaPortada">
-
 13 · 08 · 2026
-
 </div>
 
-
-<h1>
-
-Kory
-
-</h1>
-
+<h1>Kory</h1>
 
 <p class="portadaTexto">
-
 Seis meses de nosotros.
-
 <br><br>
-
 Hay algo que mi corazón
 quiere decirte...
-
 </p>
 
-
-<div id="avisoPrueba">
-
-MODO PRUEBA · VISTA LIBRE
-
-</div>
-
-
 <div class="sobreZona">
-
 
 <div
 id="sobre"
 class="sobre"
 onclick="abrirRegalo()">
 
-
 <div class="sobreFondo"></div>
-
 <div class="tapa"></div>
 
-
 <div class="sello">
-
-<svg
-viewBox="0 0 24 24">
-
-<path
-d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/>
-
+<svg viewBox="0 0 24 24">
+<path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/>
 </svg>
+</div>
 
 </div>
 
+<div class="abreme">ÁBREME</div>
+<div class="toca">toca el sobre</div>
 
 </div>
-
-
-<div class="abreme">
-
-ÁBREME
-
 </div>
-
-
-<div class="toca">
-
-toca el sobre
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
 </section>
 
-
-
-<!-- =========================================================
-     VOLVER A CARTA
-========================================================= -->
-
-<button
-id="volverCarta"
-onclick="irA('carta')"
-aria-label="Volver a la carta">
-
-
-<svg
-viewBox="0 0 24 24"
-fill="none"
-stroke-width="1.7">
-
-
-<rect
-x="3"
-y="5"
-width="18"
-height="14"
-rx="2"/>
-
-
-<path
-d="m4 7 8 6 8-6"/>
-
-
+<button id="volverCarta" onclick="irA('carta')" aria-label="Volver a la carta">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+<rect x="3" y="5" width="18" height="14" rx="2"/>
+<path d="m4 7 8 6 8-6"/>
 </svg>
-
-
 </button>
-
-
-
-<!-- =========================================================
-     CONTENIDO
-========================================================= -->
 
 <main id="contenido">
 
+<!-- CARTA -->
 
-
-<!-- =========================================================
-     CARTA
-========================================================= -->
-
-<section
-id="carta"
-class="cartaSeccion">
-
+<section id="carta" class="cartaSeccion">
 
 <div class="carta">
 
-
-<h2>
-
-Mi Kory
-
-</h2>
-
+<h2>Mi Kory</h2>
 
 <div class="fechaCarta">
-
 13 DE AGOSTO · 6 MESES DE NOSOTROS
-
 </div>
-
 
 <div class="separador">
-
 ♥ ♥ ♥
-
 </div>
 
-
 <p>
-
 Mi amor, si estás leyendo esto,
 significa que por fin llegó nuestro momento.
-
 Hoy cumplimos seis meses,
 y aunque en un calendario pueda parecer
 solamente medio año,
@@ -2344,62 +1003,40 @@ para mí han sido meses capaces
 de guardar muchísimos recuerdos
 que ya ocupan un lugar enorme
 en mi corazón.
-
 </p>
 
-
 <p>
-
 Quería hacer algo diferente para ti.
-
 Algo que no se quedara solamente
 guardado dentro de una caja,
 sino algo que pudieras volver a abrir
 cuando quisieras recordar
 lo importante que eres para mí.
-
 </p>
 
-
 <p>
-
-Han sido seis meses
-de conversaciones,
-fotografías,
-risas,
-ocurrencias,
-pequeños detalles,
-abrazos
+Han sido seis meses de conversaciones,
+fotografías, risas, ocurrencias,
+pequeños detalles, abrazos
 y momentos que quizá parecían sencillos
 cuando sucedieron,
 pero que ahora forman parte
 de nuestra historia.
-
 </p>
 
-
 <p>
-
 Entre tantas personas,
-tantos caminos
-y tantas posibilidades,
+tantos caminos y tantas posibilidades,
 la vida hizo que tú y yo coincidiéramos.
-
 Y desde entonces comenzamos,
 poco a poco,
 a escribir algo
-que solamente nosotros conocemos
-completamente.
-
+que solamente nosotros conocemos completamente.
 </p>
 
-
 <p>
-
-En estos meses
-he podido conocer
+En estos meses he podido conocer
 muchas partes de ti:
-
 tu sonrisa,
 tu carácter,
 tus ocurrencias,
@@ -2408,34 +1045,24 @@ tus sueños,
 tus emociones
 y todas esas pequeñas cosas
 que te hacen ser exactamente tú.
-
 </p>
 
-
 <p>
-
 Y mientras más te conozco,
-más entiendo
-por qué llegaste
+más entiendo por qué llegaste
 a ocupar un lugar tan importante
 en mi vida.
-
 </p>
 
-
 <p>
-
 Algunas veces decirte simplemente
 “te amo”
 parece demasiado pequeño
 para explicar todo
 lo que realmente quiero decirte.
-
 </p>
 
-
 <p>
-
 Porque para mí amarte
 también significa preocuparme por ti,
 alegrarme con tus logros,
@@ -2443,88 +1070,53 @@ querer verte crecer,
 acompañarte cuando algo
 no salga como esperabas
 y recordarte lo valiosa que eres.
-
 </p>
-
 
 <p class="destacado">
-
 ♥ 6 MESES DE NOSOTROS ♥
-
 </p>
 
-
 <p>
-
-A veces pienso
-en todas las cosas
-que ya vivimos
-en solamente seis meses
+A veces pienso en todas las cosas
+que ya vivimos en solamente seis meses
 y entonces me pregunto
 cuántos recuerdos más podremos construir
 si seguimos caminando juntos.
-
 </p>
 
-
 <p>
-
 Todavía nos faltan lugares por conocer.
-
-Fotografías que todavía
-no hemos tomado.
-
-Canciones que todavía
-no hemos escuchado juntos.
-
-Conversaciones que todavía
-no hemos tenido.
-
+Fotografías que todavía no hemos tomado.
+Canciones que todavía no hemos escuchado juntos.
+Conversaciones que todavía no hemos tenido.
 </p>
 
-
 <p>
-
 Nos faltan risas,
 aventuras,
 días inesperados
 y pequeños momentos
-que algún día
-miraremos hacia atrás
+que algún día miraremos hacia atrás
 para decir:
-
 </p>
-
 
 <p class="destacado">
-
 “¿Te acuerdas de aquel día?”
-
 </p>
 
-
 <p>
-
-Y quizá eso
-es una de las cosas
+Y quizá eso es una de las cosas
 que más me emocionan:
-
 saber que todo esto
 apenas está comenzando.
-
 </p>
 
-
 <p>
-
 Kory,
 te amo muchísimo.
-
 </p>
 
-
 <p>
-
 Daría todo de mí
 por cuidarte,
 acompañarte,
@@ -2534,14 +1126,10 @@ y seguir construyendo contigo
 momentos que algún día
 se conviertan
 en nuestros recuerdos favoritos.
-
 </p>
 
-
 <p>
-
 Gracias por estos seis meses.
-
 Gracias por tu sonrisa,
 por nuestras fotografías,
 por nuestras conversaciones
@@ -2549,1326 +1137,588 @@ y por todas esas pequeñas cosas
 que poco a poco
 te han convertido
 en alguien tan importante para mí.
-
 </p>
 
-
 <p>
-
 Feliz seis meses,
 mi Kory.
-
 </p>
-
 
 <p>
-
 Medio año contigo...
-
 y todavía tengo muchísimas ganas
-de descubrir
-todos los capítulos
+de descubrir todos los capítulos
 que podemos escribir juntos.
-
 </p>
 
-
 <div class="firma">
-
 Con muchísimo amor,
-
 <br>
-
 para mi Kory ♥
-
 </div>
 
-
-<div
-style="
-margin-top:38px;
-text-align:center;
-">
-
-
-<button
-class="boton"
-onclick="irA('tiempoJuntos')">
-
+<div style="margin-top:38px;text-align:center">
+<button class="boton" onclick="irA('tiempoJuntos')">
 Ver nuestro tiempo juntos
-
 </button>
-
-
 </div>
 
-
 </div>
-
-
 </section>
 
+<!-- TIEMPO JUNTOS -->
 
-
-<!-- =========================================================
-     TIEMPO JUNTOS
-========================================================= -->
-
-<section
-id="tiempoJuntos"
-class="seccion">
-
+<section id="tiempoJuntos" class="seccion">
 
 <div class="contadorRelacion revelar">
 
-
 <div class="corazonContador">
-
-
-<svg
-viewBox="0 0 24 24">
-
-
-<path
-d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/>
-
-
+<svg viewBox="0 0 24 24">
+<path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/>
 </svg>
-
-
 </div>
 
-
 <h2 class="titulo">
-
 Nuestro tiempo juntos
-
 </h2>
 
-
 <p class="subtitulo">
-
 Desde que comenzó esta historia,
 cada segundo también forma parte
 de nosotros.
-
 </p>
-
 
 <div class="tiempoGrid">
 
-
 <div class="tiempoCard">
-
-<span
-id="mesesJuntos"
-class="numeroTiempo">
-
-00
-
-</span>
-
-<span class="etiquetaTiempo">
-
-meses
-
-</span>
-
+<span id="mesesJuntos" class="numeroTiempo">00</span>
+<span class="etiquetaTiempo">meses</span>
 </div>
 
-
 <div class="tiempoCard">
-
-<span
-id="diasJuntos"
-class="numeroTiempo">
-
-00
-
-</span>
-
-<span class="etiquetaTiempo">
-
-días
-
-</span>
-
+<span id="diasJuntos" class="numeroTiempo">00</span>
+<span class="etiquetaTiempo">días</span>
 </div>
 
-
 <div class="tiempoCard">
-
-<span
-id="horasJuntos"
-class="numeroTiempo">
-
-00
-
-</span>
-
-<span class="etiquetaTiempo">
-
-horas
-
-</span>
-
+<span id="horasJuntos" class="numeroTiempo">00</span>
+<span class="etiquetaTiempo">horas</span>
 </div>
 
-
 <div class="tiempoCard">
-
-<span
-id="minutosJuntos"
-class="numeroTiempo">
-
-00
-
-</span>
-
-<span class="etiquetaTiempo">
-
-minutos
-
-</span>
-
+<span id="minutosJuntos" class="numeroTiempo">00</span>
+<span class="etiquetaTiempo">minutos</span>
 </div>
-
 
 <div class="tiempoCard segundos">
-
-<span
-id="segundosJuntos"
-class="numeroTiempo">
-
-00
-
-</span>
-
-<span class="etiquetaTiempo">
-
-segundos
-
-</span>
-
+<span id="segundosJuntos" class="numeroTiempo">00</span>
+<span class="etiquetaTiempo">segundos</span>
 </div>
 
-
 </div>
-
 
 <div class="fechaInicio">
-
 Desde el 13 de febrero de 2026
-
 </div>
-
 
 <div class="fraseContador">
-
 “Y cada segundo sigo eligiéndote.”
-
 </div>
-
 
 <div class="barraFondo">
-
 <div id="barraMes"></div>
-
 </div>
-
 
 <div id="textoProgreso">
-
 Caminando hacia nuestro siguiente mes...
-
 </div>
-
 
 <div style="margin-top:40px">
-
-
-<button
-class="boton"
-onclick="irA('meses')">
-
+<button class="boton" onclick="irA('meses')">
 Continuar nuestra historia
-
 </button>
-
-
 </div>
 
-
 </div>
-
-
 </section>
 
+<!-- SEIS MESES -->
 
-
-<!-- =========================================================
-     6 MESES
-========================================================= -->
-
-<section
-id="meses"
-class="seccion">
-
+<section id="meses" class="seccion">
 
 <h2 class="titulo revelar">
-
-6 meses,
+6 meses,<br>
 6 pequeños recuerdos
-
 </h2>
 
-
 <p class="subtitulo revelar">
-
 No tienen que ser meses perfectos.
-
 <br><br>
-
 Son nuestros.
-
 <br>
-
-Y cada uno dejó
-algo bonito que recordar.
-
+Y cada uno dejó algo bonito que recordar.
 </p>
-
 
 <div class="meses">
 
+<div class="mes revelar">
+<div class="mesNumero">01</div>
+<h3>El comienzo</h3>
+<p>Ese momento en el que todavía no sabíamos todas las cosas que íbamos a vivir juntos.</p>
+</div>
 
 <div class="mes revelar">
-
-<div class="mesNumero">
-
-01
-
+<div class="mesNumero">02</div>
+<h3>Conocernos</h3>
+<p>Descubrir poco a poco tus gustos, tus ocurrencias y esas pequeñas cosas que te hacen ser tú.</p>
 </div>
-
-<h3>
-
-El comienzo
-
-</h3>
-
-<p>
-
-Ese momento
-en el que todavía
-no sabíamos todas las cosas
-que íbamos a vivir juntos.
-
-</p>
-
-</div>
-
 
 <div class="mes revelar">
-
-<div class="mesNumero">
-
-02
-
+<div class="mesNumero">03</div>
+<h3>Nuestras primeras historias</h3>
+<p>Momentos que al principio parecían pequeños y ahora forman parte de nuestros recuerdos.</p>
 </div>
-
-<h3>
-
-Conocernos
-
-</h3>
-
-<p>
-
-Descubrir poco a poco
-tus gustos,
-tus ocurrencias
-y esas pequeñas cosas
-que te hacen ser tú.
-
-</p>
-
-</div>
-
 
 <div class="mes revelar">
-
-<div class="mesNumero">
-
-03
-
+<div class="mesNumero">04</div>
+<h3>Más nosotros</h3>
+<p>Más confianza, más recuerdos, más fotografías y más razones para quererte.</p>
 </div>
-
-<h3>
-
-Nuestras primeras historias
-
-</h3>
-
-<p>
-
-Momentos
-que al principio
-parecían pequeños
-y ahora forman parte
-de nuestros recuerdos.
-
-</p>
-
-</div>
-
 
 <div class="mes revelar">
-
-<div class="mesNumero">
-
-04
-
+<div class="mesNumero">05</div>
+<h3>Seguir eligiéndonos</h3>
+<p>Entender que una relación también se construye con paciencia, cariño y pequeños detalles.</p>
 </div>
-
-<h3>
-
-Más nosotros
-
-</h3>
-
-<p>
-
-Más confianza,
-más recuerdos,
-más fotografías
-y más razones
-para quererte.
-
-</p>
-
-</div>
-
 
 <div class="mes revelar">
-
-<div class="mesNumero">
-
-05
-
+<div class="mesNumero">06</div>
+<h3>Hoy</h3>
+<p>Medio año después, aquí estamos, con recuerdos detrás y muchísimas páginas todavía por escribir.</p>
 </div>
 
-<h3>
-
-Seguir eligiéndonos
-
-</h3>
-
-<p>
-
-Entender
-que una relación
-también se construye
-con paciencia,
-cariño
-y pequeños detalles.
-
-</p>
-
 </div>
-
-
-<div class="mes revelar">
-
-<div class="mesNumero">
-
-06
-
-</div>
-
-<h3>
-
-Hoy
-
-</h3>
-
-<p>
-
-Medio año después,
-aquí estamos,
-con recuerdos detrás
-y muchísimas páginas
-todavía por escribir.
-
-</p>
-
-</div>
-
-
-</div>
-
 
 <div style="margin-top:45px">
-
-
-<button
-class="boton"
-onclick="irA('fotos')">
-
+<button class="boton" onclick="irA('fotos')">
 Ver nuestros recuerdos
-
 </button>
-
-
 </div>
-
 
 </section>
 
+<!-- FOTOS -->
 
-
-<!-- =========================================================
-     FOTOS
-========================================================= -->
-
-<section
-id="fotos"
-class="seccion">
-
+<section id="fotos" class="seccion">
 
 <h2 class="titulo revelar">
-
 Nuestros recuerdos
-
 </h2>
 
-
 <p class="subtitulo revelar">
-
 Once pequeños pedacitos
 de nuestros primeros seis meses.
-
 <br><br>
-
 Y espero que algún día
 esta colección sea enorme.
-
 </p>
-
 
 <div class="galeria">
 
+<div class="foto revelar">
+<img data-base="fotos/foto1" alt="Recuerdo 1">
+<p>Los momentos pequeños contigo también pueden quedarse para siempre.</p>
+</div>
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto1"
-alt="Recuerdo 1">
-
-<p>
-
-Los momentos pequeños contigo
-también pueden quedarse
-para siempre.
-
-</p>
-
+<img data-base="fotos/foto2" alt="Recuerdo 2">
+<p>Un recuerdo de nosotros que siempre tendrá un lugar especial en mi corazón.</p>
 </div>
-
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto2"
-alt="Recuerdo 2">
-
-<p>
-
-Un recuerdo de nosotros
-que siempre tendrá
-un lugar especial
-en mi corazón.
-
-</p>
-
+<img data-base="fotos/foto3" alt="Recuerdo 3">
+<p>Esta fotografía guarda algo imposible de repetir: ese instante exacto contigo.</p>
 </div>
-
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto3"
-alt="Recuerdo 3">
-
-<p>
-
-Esta fotografía guarda
-algo imposible de repetir:
-ese instante exacto contigo.
-
-</p>
-
+<img data-base="fotos/foto4" alt="Recuerdo 4">
+<p>Entre tantas fotografías, algunas simplemente se sienten un poquito más nuestras.</p>
 </div>
-
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto4"
-alt="Recuerdo 4">
-
-<p>
-
-Entre tantas fotografías,
-algunas simplemente
-se sienten un poquito
-más nuestras.
-
-</p>
-
+<img data-base="fotos/foto5" alt="Recuerdo 5">
+<p>Hay tranquilidad en saber que existe una persona con quien simplemente puedo estar.</p>
 </div>
-
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto5"
-alt="Recuerdo 5">
-
-<p>
-
-Hay tranquilidad
-en saber que existe
-una persona
-con quien simplemente puedo estar.
-
-</p>
-
+<img data-base="fotos/foto6" alt="Recuerdo 6">
+<p>Mi lugar favorito muchas veces no es un lugar. Es estar contigo.</p>
 </div>
-
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto6"
-alt="Recuerdo 6">
-
-<p>
-
-Mi lugar favorito
-muchas veces
-no es un lugar.
-
-Es estar contigo.
-
-</p>
-
+<img data-base="fotos/foto7" alt="Recuerdo 7">
+<p>Otra pequeña página de esta historia que todavía estamos comenzando a escribir.</p>
 </div>
-
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto7"
-alt="Recuerdo 7">
-
-<p>
-
-Otra pequeña página
-de esta historia
-que todavía estamos
-comenzando a escribir.
-
-</p>
-
+<img data-base="fotos/foto8" alt="Recuerdo 8">
+<p>Qué bonito poder mirar hacia atrás y encontrar recuerdos donde estamos los dos.</p>
 </div>
-
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto8"
-alt="Recuerdo 8">
-
-<p>
-
-Qué bonito
-poder mirar hacia atrás
-y encontrar recuerdos
-donde estamos los dos.
-
-</p>
-
+<img data-base="fotos/foto9" alt="Recuerdo 9">
+<p>Otra pequeña parte de nuestros primeros seis meses.</p>
 </div>
-
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto9"
-alt="Recuerdo 9">
-
-<p>
-
-Otra pequeña parte
-de nuestros primeros
-seis meses.
-
-</p>
-
+<img data-base="fotos/foto10" alt="Recuerdo 10">
+<p>Incluso cuando solamente somos un reflejo, sigue existiendo algo que me encanta ver: nosotros.</p>
 </div>
-
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto10"
-alt="Recuerdo 10">
-
-<p>
-
-Incluso cuando solamente
-somos un reflejo,
-sigue existiendo algo
-que me encanta ver:
-
-nosotros.
-
-</p>
-
+<img data-base="fotos/foto11" alt="Recuerdo 11">
+<p>Siempre elegiría una historia donde estemos los dos.</p>
 </div>
 
-
-<div class="foto revelar">
-
-<img
-data-base="fotos/foto11"
-alt="Recuerdo 11">
-
-<p>
-
-Siempre elegiría
-una historia
-donde estemos los dos.
-
-</p>
-
 </div>
-
-
-</div>
-
 
 <div style="margin-top:48px">
-
-
-<button
-class="boton"
-onclick="irA('razones')">
-
-Hay algo más
-que quiero decirte
-
+<button class="boton" onclick="irA('razones')">
+Hay algo más que quiero decirte
 </button>
-
-
 </div>
-
 
 </section>
 
+<!-- RAZONES -->
 
-
-<!-- =========================================================
-     10 RAZONES
-========================================================= -->
-
-<section
-id="razones"
-class="seccion">
-
+<section id="razones" class="seccion">
 
 <h2 class="titulo revelar">
-
-10 razones por las que
+10 razones por las que<br>
 te amo tanto
-
 </h2>
 
-
 <p class="subtitulo revelar">
-
 Podría escribir muchas más.
-
 <br><br>
-
-Toca cada corazón
-para descubrirlas.
-
+Toca cada corazón para descubrirlas.
 </p>
 
-
-<div
-id="listaRazones"
-class="razones">
-
-</div>
-
+<div id="listaRazones" class="razones"></div>
 
 <div style="margin-top:45px">
-
-
-<button
-class="boton"
-onclick="irA('final')">
-
+<button class="boton" onclick="irA('final')">
 Tengo una última pregunta
-
 </button>
-
-
 </div>
-
 
 </section>
 
-
-
-<!-- =========================================================
-     FINAL
-========================================================= -->
+<!-- FINAL -->
 
 <section id="final">
 
-
 <div class="final">
 
-
 <div class="finalPequeno">
-
 una última cosa...
-
 </div>
 
-
 <h2>
-
 Kory...
-
 <br><br>
-
 ¿Quieres seguir escribiendo
 esta historia conmigo?
-
+<br><br>
 ❤️
-
 </h2>
 
-
 <p>
-
-Estos fueron
-nuestros primeros seis meses.
-
+Estos fueron nuestros primeros seis meses.
 <br><br>
-
 Pero todavía quedan
-muchísimas páginas
-en blanco.
-
+muchísimas páginas en blanco.
 </p>
-
 
 <div class="botonesFinales">
 
-
-<button
-class="boton"
-onclick="respuestaFinal()">
-
+<button class="boton" onclick="respuestaFinal()">
 ❤️ Sí, quiero seguir contigo
-
 </button>
 
-
-<button
-class="boton"
-onclick="respuestaFinal()">
-
+<button class="boton" onclick="respuestaFinal()">
 💕 Obvio que sí
-
 </button>
-
 
 </div>
-
 
 <div id="sorpresa">
 
-
 <h3>
-
 Entonces esto
 apenas comienza...
-
 ❤️
-
 </h3>
 
-
 <p>
-
 Feliz seis meses,
 mi Kory.
-
 <br><br>
 
-Gracias por estos
-primeros meses
+Gracias por estos primeros meses
 de nuestra historia.
-
 <br><br>
 
-No sé cuántas páginas
-tendrá nuestra historia,
-pero sí sé que quiero
-seguir escribiendo
+No sé cuántas páginas tendrá nuestra historia,
+pero sí sé que quiero seguir escribiendo
 muchas más contigo.
-
 <br><br>
 
 13.02.2026 — ∞
-
 <br><br>
 
 Te amo muchísimo.
-
 ❤️
-
 </p>
 
-
-<button
-class="boton"
-onclick="irA('carta')">
-
+<button class="boton" onclick="irA('carta')">
 Volver a leer mi carta
-
 </button>
 
-
 </div>
 
-
 </div>
-
-
 </section>
 
-
 </main>
-
-
 
 <script>
 
 /* =========================================================
-   MODO PRUEBA
-
-   TRUE = PUEDES VER TODO AHORA MISMO.
-
-   NO LO CAMBIES TODAVÍA.
+   VERSIÓN FINAL
+   FALSE = BLOQUEO ACTIVO
 ========================================================= */
 
-const MODO_PRUEBA = true;
+const MODO_PRUEBA = false;
 
 
 /* =========================================================
-   APERTURA FINAL
-
-   Cuando terminemos,
-   la página se abrirá:
-
+   APERTURA:
    12 AGOSTO 2026
    11:59 PM
    HORA DE PERÚ
 ========================================================= */
 
 const fechaApertura =
-new Date(
-"2026-08-12T23:59:00-05:00"
-);
+new Date("2026-08-12T23:59:00-05:00");
 
 
-/* =========================================================
-   FECHA INICIO DE RELACIÓN
-========================================================= */
+/* INICIO DE RELACIÓN */
 
 const fechaInicioRelacion =
-new Date(
-"2026-02-13T00:00:00-05:00"
-);
+new Date("2026-02-13T00:00:00-05:00");
 
-
-/* =========================================================
-   ELEMENTOS
-========================================================= */
 
 const bloqueo =
-document.getElementById(
-"bloqueo"
-);
+document.getElementById("bloqueo");
 
 const inicio =
-document.getElementById(
-"inicio"
-);
+document.getElementById("inicio");
 
 const contenido =
-document.getElementById(
-"contenido"
-);
+document.getElementById("contenido");
 
 const musica =
-document.getElementById(
-"musica"
-);
+document.getElementById("musica");
 
 const contadorApertura =
-document.getElementById(
-"contadorApertura"
-);
-
-const avisoPrueba =
-document.getElementById(
-"avisoPrueba"
-);
+document.getElementById("contadorApertura");
 
 const botonVolver =
-document.getElementById(
-"volverCarta"
-);
+document.getElementById("volverCarta");
 
 
-/* =========================================================
-   REVISAR FECHA
-========================================================= */
+/* CUENTA REGRESIVA */
 
 function comprobarFecha(){
 
-    if(MODO_PRUEBA){
+  if(MODO_PRUEBA){
 
-        bloqueo.style.display =
-        "none";
+    bloqueo.style.display="none";
+    inicio.style.display="flex";
 
-        inicio.style.display =
-        "flex";
+    return;
+  }
 
-        avisoPrueba.style.display =
-        "inline-block";
+  const ahora=new Date();
 
-        return;
+  const diferencia=
+  fechaApertura-ahora;
 
-    }
+  if(diferencia<=0){
 
+    bloqueo.style.display="none";
+    inicio.style.display="flex";
 
-    avisoPrueba.style.display =
-    "none";
+    return;
+  }
 
+  bloqueo.style.display="flex";
+  inicio.style.display="none";
 
-    const ahora =
-    new Date();
+  const dias=
+  Math.floor(diferencia/86400000);
 
+  const horas=
+  Math.floor(
+    (diferencia%86400000)/3600000
+  );
 
-    const diferencia =
-    fechaApertura -
-    ahora;
+  const minutos=
+  Math.floor(
+    (diferencia%3600000)/60000
+  );
 
+  const segundos=
+  Math.floor(
+    (diferencia%60000)/1000
+  );
 
-    if(diferencia <= 0){
+  contadorApertura.innerHTML=
+  `
+  Faltan
+  <br><br>
 
-        bloqueo.style.display =
-        "none";
+  <span style="font-size:1.45rem">
+  ${dias} días
+  </span>
 
-        inicio.style.display =
-        "flex";
+  <br><br>
 
-        return;
+  ${horas} h ·
+  ${minutos} min ·
+  ${segundos} s
 
-    }
+  <br><br>
 
-
-    bloqueo.style.display =
-    "flex";
-
-
-    inicio.style.display =
-    "none";
-
-
-    const dias =
-
-    Math.floor(
-        diferencia /
-        86400000
-    );
-
-
-    const horas =
-
-    Math.floor(
-        (
-            diferencia %
-            86400000
-        )
-        /
-        3600000
-    );
-
-
-    const minutos =
-
-    Math.floor(
-        (
-            diferencia %
-            3600000
-        )
-        /
-        60000
-    );
-
-
-    const segundos =
-
-    Math.floor(
-        (
-            diferencia %
-            60000
-        )
-        /
-        1000
-    );
-
-
-    contadorApertura.innerHTML =
-
-    `
-    Faltan
-    <br><br>
-    ${dias} días
-    <br>
-    ${horas} h ·
-    ${minutos} min ·
-    ${segundos} s
-    `;
-
+  ♥
+  `;
 }
-
 
 comprobarFecha();
 
-
 setInterval(
-comprobarFecha,
-1000
+  comprobarFecha,
+  1000
 );
 
 
-/* =========================================================
-   ABRIR REGALO
-========================================================= */
+/* ABRIR REGALO */
 
-let regaloAbierto =
-false;
-
+let regaloAbierto=false;
 
 function abrirRegalo(){
 
-    if(regaloAbierto){
+  if(regaloAbierto){
+    return;
+  }
 
-        return;
+  regaloAbierto=true;
 
+  const sobre=
+  document.getElementById("sobre");
+
+  sobre.classList.add("abierto");
+
+
+  /* MÚSICA:
+     SOLO EMPIEZA AL TOCAR EL SOBRE.
+     LOOP HACE QUE SE REPITA.
+  */
+
+  musica.currentTime=0;
+  musica.volume=.43;
+
+  musica.play().catch(
+    error=>{
+      console.log(
+        "No se pudo iniciar el audio:",
+        error
+      );
     }
+  );
 
+  lanzarCorazones(25);
+  iniciarPetalos();
 
-    regaloAbierto =
-    true;
+  setTimeout(
+    ()=>{
 
+      inicio.style.display="none";
+      contenido.style.display="block";
+      botonVolver.style.display="block";
 
-    const sobre =
+      iniciarObservador();
+      actualizarTiempoJuntos();
 
-    document.getElementById(
-        "sobre"
-    );
+      irA("carta");
 
-
-    sobre.classList.add(
-        "abierto"
-    );
-
-
-    /* ================================================
-       MÚSICA
-
-       SOLO EMPIEZA AL TOCAR ÁBREME.
-       EMPIEZA DESDE 0.
-       LOOP = SE REPITE AUTOMÁTICAMENTE.
-    ================================================ */
-
-
-    musica.currentTime =
-    0;
-
-
-    musica.volume =
-    .43;
-
-
-    musica.play()
-    .catch(
-        error=>{
-
-            console.log(
-                "El navegador no pudo iniciar el audio:",
-                error
-            );
-
-        }
-    );
-
-
-    lanzarCorazones(
-        25
-    );
-
-
-    iniciarPetalos();
-
-
-    setTimeout(
-        ()=>{
-
-            inicio.style.display =
-            "none";
-
-
-            contenido.style.display =
-            "block";
-
-
-            botonVolver.style.display =
-            "block";
-
-
-            iniciarObservador();
-
-
-            actualizarTiempoJuntos();
-
-
-            irA(
-                "carta"
-            );
-
-        },
-
-        850
-
-    );
-
+    },
+    850
+  );
 }
 
 
-/* =========================================================
-   NAVEGAR
-========================================================= */
+/* NAVEGACIÓN */
 
 function irA(id){
 
-    const elemento =
+  const elemento=
+  document.getElementById(id);
 
-    document.getElementById(
-        id
-    );
+  if(!elemento){
+    return;
+  }
 
-
-    if(!elemento){
-
-        return;
-
-    }
-
-
-    elemento.scrollIntoView({
-
-        behavior:
-        "smooth",
-
-        block:
-        "start"
-
-    });
-
+  elemento.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
 }
 
 
-/* =========================================================
-   CONTADOR RELACIÓN
-========================================================= */
+/* CONTADOR DE RELACIÓN */
 
-function agregarMeses(
-fecha,
-cantidad
-){
+function agregarMeses(fecha,cantidad){
 
-    const copia =
-    new Date(fecha);
+  const copia=
+  new Date(fecha);
 
+  const diaOriginal=
+  copia.getDate();
 
-    const diaOriginal =
-    copia.getDate();
+  copia.setDate(1);
 
+  copia.setMonth(
+    copia.getMonth()+cantidad
+  );
 
-    copia.setDate(
-        1
-    );
+  const ultimoDia=
+  new Date(
+    copia.getFullYear(),
+    copia.getMonth()+1,
+    0
+  ).getDate();
 
+  copia.setDate(
+    Math.min(
+      diaOriginal,
+      ultimoDia
+    )
+  );
 
-    copia.setMonth(
-
-        copia.getMonth() +
-        cantidad
-
-    );
-
-
-    const ultimoDia =
-
-    new Date(
-
-        copia.getFullYear(),
-
-        copia.getMonth() + 1,
-
-        0
-
-    ).getDate();
-
-
-    copia.setDate(
-
-        Math.min(
-
-            diaOriginal,
-
-            ultimoDia
-
-        )
-
-    );
-
-
-    return copia;
-
+  return copia;
 }
 
 
@@ -3877,360 +1727,206 @@ inicioRelacion,
 ahora
 ){
 
-    let meses =
+  let meses=
+  (
+    ahora.getFullYear()-
+    inicioRelacion.getFullYear()
+  )*12
+  +
+  (
+    ahora.getMonth()-
+    inicioRelacion.getMonth()
+  );
 
-    (
-        ahora.getFullYear() -
-        inicioRelacion.getFullYear()
-    )
+  if(
+    agregarMeses(
+      inicioRelacion,
+      meses
+    ) > ahora
+  ){
+    meses--;
+  }
 
-    *
-    12
-
-    +
-
-    (
-        ahora.getMonth() -
-        inicioRelacion.getMonth()
-    );
-
-
-    if(
-
-        agregarMeses(
-            inicioRelacion,
-            meses
-        )
-
-        >
-
-        ahora
-
-    ){
-
-        meses--;
-
-    }
-
-
-    return Math.max(
-        0,
-        meses
-    );
-
+  return Math.max(
+    0,
+    meses
+  );
 }
 
 
 function actualizarTiempoJuntos(){
 
-    const ahora =
-    new Date();
-
-
-    if(
-        ahora <
-        fechaInicioRelacion
-    ){
-
-        return;
-
-    }
-
-
-    const meses =
-
-    mesesCompletos(
-
-        fechaInicioRelacion,
-
-        ahora
-
-    );
-
-
-    const inicioPeriodo =
-
-    agregarMeses(
-
-        fechaInicioRelacion,
-
-        meses
-
-    );
-
-
-    const siguienteMes =
-
-    agregarMeses(
-
-        fechaInicioRelacion,
-
-        meses + 1
-
-    );
-
-
-    let diferencia =
-
-    ahora -
-    inicioPeriodo;
-
-
-    const dias =
-
-    Math.floor(
-
-        diferencia /
-        86400000
-
-    );
-
-
-    diferencia %=
-
-    86400000;
-
-
-    const horas =
-
-    Math.floor(
-
-        diferencia /
-        3600000
-
-    );
-
-
-    diferencia %=
-
-    3600000;
-
-
-    const minutos =
-
-    Math.floor(
-
-        diferencia /
-        60000
-
-    );
-
-
-    diferencia %=
-
-    60000;
-
-
-    const segundos =
-
-    Math.floor(
-
-        diferencia /
-        1000
-
-    );
-
-
-    document.getElementById(
-        "mesesJuntos"
-    ).textContent =
-
-    String(meses)
-    .padStart(
-        2,
-        "0"
-    );
-
-
-    document.getElementById(
-        "diasJuntos"
-    ).textContent =
-
-    String(dias)
-    .padStart(
-        2,
-        "0"
-    );
-
-
-    document.getElementById(
-        "horasJuntos"
-    ).textContent =
-
-    String(horas)
-    .padStart(
-        2,
-        "0"
-    );
-
-
-    document.getElementById(
-        "minutosJuntos"
-    ).textContent =
-
-    String(minutos)
-    .padStart(
-        2,
-        "0"
-    );
-
-
-    document.getElementById(
-        "segundosJuntos"
-    ).textContent =
-
-    String(segundos)
-    .padStart(
-        2,
-        "0"
-    );
-
-
-    const totalPeriodo =
-
-    siguienteMes -
-    inicioPeriodo;
-
-
-    const transcurrido =
-
-    ahora -
-    inicioPeriodo;
-
-
-    const porcentaje =
-
-    Math.max(
-
-        0,
-
-        Math.min(
-
-            100,
-
-            (
-                transcurrido /
-                totalPeriodo
-            )
-
-            *
-            100
-
-        )
-
-    );
-
-
-    document.getElementById(
-        "barraMes"
-    ).style.width =
-
-    porcentaje +
-    "%";
-
-
-    document.getElementById(
-        "textoProgreso"
-    ).textContent =
-
-    `Camino a nuestro mes número ${meses + 1}`;
-
+  const ahora=
+  new Date();
+
+  if(
+    ahora<fechaInicioRelacion
+  ){
+    return;
+  }
+
+  const meses=
+  mesesCompletos(
+    fechaInicioRelacion,
+    ahora
+  );
+
+  const inicioPeriodo=
+  agregarMeses(
+    fechaInicioRelacion,
+    meses
+  );
+
+  const siguienteMes=
+  agregarMeses(
+    fechaInicioRelacion,
+    meses+1
+  );
+
+  let diferencia=
+  ahora-inicioPeriodo;
+
+  const dias=
+  Math.floor(
+    diferencia/86400000
+  );
+
+  diferencia%=86400000;
+
+  const horas=
+  Math.floor(
+    diferencia/3600000
+  );
+
+  diferencia%=3600000;
+
+  const minutos=
+  Math.floor(
+    diferencia/60000
+  );
+
+  diferencia%=60000;
+
+  const segundos=
+  Math.floor(
+    diferencia/1000
+  );
+
+  document.getElementById(
+    "mesesJuntos"
+  ).textContent=
+  String(meses).padStart(2,"0");
+
+  document.getElementById(
+    "diasJuntos"
+  ).textContent=
+  String(dias).padStart(2,"0");
+
+  document.getElementById(
+    "horasJuntos"
+  ).textContent=
+  String(horas).padStart(2,"0");
+
+  document.getElementById(
+    "minutosJuntos"
+  ).textContent=
+  String(minutos).padStart(2,"0");
+
+  document.getElementById(
+    "segundosJuntos"
+  ).textContent=
+  String(segundos).padStart(2,"0");
+
+
+  const totalPeriodo=
+  siguienteMes-inicioPeriodo;
+
+  const transcurrido=
+  ahora-inicioPeriodo;
+
+  const porcentaje=
+  Math.max(
+    0,
+    Math.min(
+      100,
+      (
+        transcurrido/
+        totalPeriodo
+      )*100
+    )
+  );
+
+  document.getElementById(
+    "barraMes"
+  ).style.width=
+  porcentaje+"%";
+
+  document.getElementById(
+    "textoProgreso"
+  ).textContent=
+  `Camino a nuestro mes número ${meses+1}`;
 }
-
 
 actualizarTiempoJuntos();
 
-
 setInterval(
-actualizarTiempoJuntos,
-1000
+  actualizarTiempoJuntos,
+  1000
 );
 
 
-/* =========================================================
-   10 RAZONES
-========================================================= */
+/* 10 RAZONES */
 
-const razones = [
+const razones=[
 
 {
-    titulo:
-    "1. Por tu sonrisa",
-
-    texto:
-    "Porque una sonrisa tuya puede cambiar completamente mi día."
+titulo:"1. Por tu sonrisa",
+texto:"Porque una sonrisa tuya puede cambiar completamente mi día."
 },
 
 {
-    titulo:
-    "2. Por tu manera de ser",
-
-    texto:
-    "Porque eres tú, con tus virtudes, tu carácter, tus ocurrencias y todas esas pequeñas cosas que te hacen diferente."
+titulo:"2. Por tu manera de ser",
+texto:"Porque eres tú, con tus virtudes, tu carácter, tus ocurrencias y todas esas pequeñas cosas que te hacen diferente."
 },
 
 {
-    titulo:
-    "3. Porque contigo puedo ser yo",
-
-    texto:
-    "Porque a tu lado puedo mostrarme tal como soy y sentir que no necesito ser alguien diferente."
+titulo:"3. Porque contigo puedo ser yo",
+texto:"Porque a tu lado puedo mostrarme tal como soy y sentir que no necesito ser alguien diferente."
 },
 
 {
-    titulo:
-    "4. Por nuestros recuerdos",
-
-    texto:
-    "Porque en solamente seis meses ya hemos creado momentos que no cambiaría por nada."
+titulo:"4. Por nuestros recuerdos",
+texto:"Porque en solamente seis meses ya hemos creado momentos que no cambiaría por nada."
 },
 
 {
-    titulo:
-    "5. Porque me importan tus sueños",
-
-    texto:
-    "Porque quiero verte crecer, cumplir tus metas y sentirte orgullosa de todo aquello que eres capaz de conseguir."
+titulo:"5. Porque me importan tus sueños",
+texto:"Porque quiero verte crecer, cumplir tus metas y sentirte orgullosa de todo aquello que eres capaz de conseguir."
 },
 
 {
-    titulo:
-    "6. Porque haces especial lo cotidiano",
-
-    texto:
-    "Porque contigo incluso un momento sencillo puede convertirse en un recuerdo especial."
+titulo:"6. Porque haces especial lo cotidiano",
+texto:"Porque contigo incluso un momento sencillo puede convertirse en un recuerdo especial."
 },
 
 {
-    titulo:
-    "7. Porque me encanta conocerte",
-
-    texto:
-    "Porque siento que todavía tengo muchísimo que descubrir de ti y quiero seguir haciéndolo."
+titulo:"7. Porque me encanta conocerte",
+texto:"Porque siento que todavía tengo muchísimo que descubrir de ti y quiero seguir haciéndolo."
 },
 
 {
-    titulo:
-    "8. Porque me haces imaginar el futuro",
-
-    texto:
-    "Porque cuando pienso en nuevas experiencias, aventuras y recuerdos, muchas veces te imagino a mi lado."
+titulo:"8. Porque me haces imaginar el futuro",
+texto:"Porque cuando pienso en nuevas experiencias, aventuras y recuerdos, muchas veces te imagino a mi lado."
 },
 
 {
-    titulo:
-    "9. Porque eres mi Kory",
-
-    texto:
-    "Porque no existe otra persona con tu historia, tu manera de mirar, tu forma de reír y todo aquello que te hace ser tú."
+titulo:"9. Porque eres mi Kory",
+texto:"Porque no existe otra persona con tu historia, tu manera de mirar, tu forma de reír y todo aquello que te hace ser tú."
 },
 
 {
-    titulo:
-    "10. Porque estos seis meses me hacen querer muchos más contigo",
-
-    texto:
-    "Porque esto apenas comienza y quiero seguir creando nuevas historias, nuevos recuerdos y nuevos capítulos contigo."
+titulo:"10. Porque estos seis meses me hacen querer muchos más contigo",
+texto:"Porque esto apenas comienza y quiero seguir creando nuevas historias, nuevos recuerdos y nuevos capítulos contigo."
 }
 
 ];
@@ -4238,260 +1934,166 @@ const razones = [
 
 function crearRazones(){
 
-    const lista =
+  const lista=
+  document.getElementById(
+    "listaRazones"
+  );
 
-    document.getElementById(
-        "listaRazones"
-    );
+  razones.forEach(
+    razon=>{
 
+      const tarjeta=
+      document.createElement(
+        "div"
+      );
 
-    razones.forEach(
+      tarjeta.className=
+      "razon revelar";
 
-        razon=>{
+      tarjeta.innerHTML=
+      `
+      <div class="iconoRazon">
 
+      <svg viewBox="0 0 24 24">
 
-            const tarjeta =
+      <path
+      d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/>
 
-            document.createElement(
-                "div"
-            );
+      </svg>
 
+      </div>
 
-            tarjeta.className =
-            "razon revelar";
+      <h3>
+      ${razon.titulo}
+      </h3>
 
+      <div class="pistaRazon">
+      Toca para descubrir
+      </div>
 
-            tarjeta.innerHTML =
+      <p class="textoRazon">
+      ${razon.texto}
+      </p>
+      `;
 
-            `
+      tarjeta.addEventListener(
+        "click",
+        ()=>{
 
-            <div class="iconoRazon">
+          tarjeta.classList.toggle(
+            "abierta"
+          );
 
-                <svg
-                viewBox="0 0 24 24">
-
-                    <path
-                    d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/>
-
-                </svg>
-
-            </div>
-
-
-            <h3>
-
-                ${razon.titulo}
-
-            </h3>
-
-
-            <div class="pistaRazon">
-
-                Toca para descubrir
-
-            </div>
-
-
-            <p class="textoRazon">
-
-                ${razon.texto}
-
-            </p>
-
-            `;
-
-
-            tarjeta.addEventListener(
-
-                "click",
-
-                ()=>{
-
-
-                    tarjeta.classList.toggle(
-                        "abierta"
-                    );
-
-
-                    if(
-
-                        tarjeta.classList.contains(
-                            "abierta"
-                        )
-
-                    ){
-
-                        lanzarCorazones(
-                            2
-                        );
-
-                    }
-
-                }
-
-            );
-
-
-            lista.appendChild(
-                tarjeta
-            );
+          if(
+            tarjeta.classList.contains(
+              "abierta"
+            )
+          ){
+            lanzarCorazones(2);
+          }
 
         }
+      );
 
-    );
+      lista.appendChild(
+        tarjeta
+      );
 
+    }
+  );
 }
-
 
 crearRazones();
 
 
-/* =========================================================
-   FINAL
-========================================================= */
+/* FINAL */
 
 function respuestaFinal(){
 
-    const sorpresa =
+  const sorpresa=
+  document.getElementById(
+    "sorpresa"
+  );
 
-    document.getElementById(
-        "sorpresa"
-    );
+  sorpresa.style.display=
+  "block";
 
+  lanzarCorazones(120);
 
-    sorpresa.style.display =
-    "block";
-
-
-    lanzarCorazones(
-        110
-    );
-
-
-    for(
-        let i = 0;
-        i < 25;
-        i++
-    ){
-
-        setTimeout(
-
-            crearPetalo,
-
-            i * 120
-
-        );
-
-    }
-
+  for(
+    let i=0;
+    i<28;
+    i++
+  ){
 
     setTimeout(
-        ()=>{
-
-            sorpresa.scrollIntoView({
-
-                behavior:
-                "smooth",
-
-                block:
-                "center"
-
-            });
-
-        },
-
-        350
-
+      crearPetalo,
+      i*115
     );
 
+  }
+
+  setTimeout(
+    ()=>{
+
+      sorpresa.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+    },
+    350
+  );
 }
 
 
-/* =========================================================
-   CORAZONES
-========================================================= */
+/* CORAZONES */
 
 function crearCorazon(){
 
-    const corazon =
+  const corazon=
+  document.createElement(
+    "div"
+  );
 
-    document.createElement(
-        "div"
-    );
+  corazon.className=
+  "corazonFlotante";
 
+  corazon.textContent=
+  Math.random()>.5
+  ?"♥"
+  :"♡";
 
-    corazon.className =
-    "corazonFlotante";
+  corazon.style.left=
+  Math.random()*100+"vw";
 
+  corazon.style.fontSize=
+  (
+    17+
+    Math.random()*25
+  )+"px";
 
-    corazon.textContent =
+  corazon.style.color=
+  Math.random()>.5
+  ?"#ff7ba5"
+  :"#ffd1df";
 
-    Math.random() > .5
-    ?
-    "♥"
-    :
-    "♡";
+  corazon.style.animationDuration=
+  (
+    5+
+    Math.random()*4
+  )+"s";
 
+  document.body.appendChild(
+    corazon
+  );
 
-    corazon.style.left =
-
-    Math.random() *
-    100 +
-
-    "vw";
-
-
-    corazon.style.fontSize =
-
-    (
-        17 +
-        Math.random() *
-        25
-    )
-
-    +
-
-    "px";
-
-
-    corazon.style.color =
-
-    Math.random() > .5
-    ?
-    "#ff7ba5"
-    :
-    "#ffd1df";
-
-
-    corazon.style.animationDuration =
-
-    (
-        5 +
-        Math.random() *
-        4
-    )
-
-    +
-
-    "s";
-
-
-    document.body.appendChild(
-        corazon
-    );
-
-
-    setTimeout(
-        ()=>{
-
-            corazon.remove();
-
-        },
-
-        9500
-
-    );
-
+  setTimeout(
+    ()=>{
+      corazon.remove();
+    },
+    9500
+  );
 }
 
 
@@ -4499,399 +2101,253 @@ function lanzarCorazones(
 cantidad
 ){
 
-    for(
-        let i = 0;
-        i < cantidad;
-        i++
-    ){
+  for(
+    let i=0;
+    i<cantidad;
+    i++
+  ){
 
-        setTimeout(
+    setTimeout(
+      crearCorazon,
+      i*65
+    );
 
-            crearCorazon,
-
-            i * 65
-
-        );
-
-    }
-
+  }
 }
 
 
-/* =========================================================
-   PÉTALOS
-========================================================= */
+/* PÉTALOS */
 
-let petalosIniciados =
-false;
-
+let petalosIniciados=false;
 
 function crearPetalo(){
 
-    const elemento =
+  const elemento=
+  document.createElement(
+    "div"
+  );
 
-    document.createElement(
-        "div"
-    );
+  elemento.className=
+  "petalo";
 
+  const petalos=[
+    "🌸",
+    "🌹",
+    "🌷"
+  ];
 
-    elemento.className =
-    "petalo";
-
-
-    const petalos = [
-
-        "🌸",
-        "🌹",
-        "🌷"
-
-    ];
-
-
-    elemento.textContent =
-
-    petalos[
-
-        Math.floor(
-
-            Math.random() *
-            petalos.length
-
-        )
-
-    ];
-
-
-    elemento.style.left =
-
-    Math.random() *
-    100 +
-
-    "vw";
-
-
-    elemento.style.fontSize =
-
-    (
-        11 +
-        Math.random() *
-        11
+  elemento.textContent=
+  petalos[
+    Math.floor(
+      Math.random()*
+      petalos.length
     )
+  ];
 
-    +
+  elemento.style.left=
+  Math.random()*100+"vw";
 
-    "px";
+  elemento.style.fontSize=
+  (
+    11+
+    Math.random()*11
+  )+"px";
 
+  elemento.style.animationDuration=
+  (
+    9+
+    Math.random()*8
+  )+"s";
 
-    elemento.style.animationDuration =
+  document.body.appendChild(
+    elemento
+  );
 
-    (
-        9 +
-        Math.random() *
-        8
-    )
-
-    +
-
-    "s";
-
-
-    document.body.appendChild(
-        elemento
-    );
-
-
-    setTimeout(
-        ()=>{
-
-            elemento.remove();
-
-        },
-
-        18000
-
-    );
-
+  setTimeout(
+    ()=>{
+      elemento.remove();
+    },
+    18000
+  );
 }
 
 
 function iniciarPetalos(){
 
-    if(
-        petalosIniciados
-    ){
+  if(petalosIniciados){
+    return;
+  }
 
-        return;
+  petalosIniciados=true;
 
-    }
-
-
-    petalosIniciados =
-    true;
-
-
-    setInterval(
-        crearPetalo,
-        2400
-    );
-
+  setInterval(
+    crearPetalo,
+    2400
+  );
 }
 
 
-/* =========================================================
-   ESTRELLAS
-========================================================= */
+/* ESTRELLAS */
 
 function crearEstrellas(){
 
-    const fondo =
+  const fondo=
+  document.getElementById(
+    "estrellas"
+  );
 
-    document.getElementById(
-        "estrellas"
+  for(
+    let i=0;
+    i<50;
+    i++
+  ){
+
+    const estrella=
+    document.createElement(
+      "div"
     );
 
+    estrella.className=
+    "estrella";
 
-    for(
-        let i = 0;
-        i < 50;
-        i++
-    ){
+    const tam=
+    1+
+    Math.random()*2.3;
 
-        const estrella =
+    estrella.style.width=
+    tam+"px";
 
-        document.createElement(
-            "div"
-        );
+    estrella.style.height=
+    tam+"px";
 
+    estrella.style.left=
+    Math.random()*100+"%";
 
-        estrella.className =
-        "estrella";
+    estrella.style.top=
+    Math.random()*100+"%";
 
+    estrella.style.animationDelay=
+    Math.random()*5+"s";
 
-        const tamaño =
-
-        1 +
-        Math.random() *
-        2.3;
-
-
-        estrella.style.width =
-
-        tamaño +
-        "px";
-
-
-        estrella.style.height =
-
-        tamaño +
-        "px";
-
-
-        estrella.style.left =
-
-        Math.random() *
-        100 +
-
-        "%";
-
-
-        estrella.style.top =
-
-        Math.random() *
-        100 +
-
-        "%";
-
-
-        estrella.style.animationDelay =
-
-        Math.random() *
-        5 +
-
-        "s";
-
-
-        fondo.appendChild(
-            estrella
-        );
-
-    }
-
+    fondo.appendChild(
+      estrella
+    );
+  }
 }
-
 
 crearEstrellas();
 
 
-/* =========================================================
-   REVELADO AL BAJAR
-========================================================= */
+/* REVELADO */
 
 let observer;
 
-
 function iniciarObservador(){
 
-    const elementos =
+  const elementos=
+  document.querySelectorAll(
+    ".revelar"
+  );
 
-    document.querySelectorAll(
-        ".revelar"
-    );
+  observer=
+  new IntersectionObserver(
+    entradas=>{
 
+      entradas.forEach(
+        entrada=>{
 
-    observer =
+          if(
+            entrada.isIntersecting
+          ){
 
-    new IntersectionObserver(
-
-        entradas=>{
-
-            entradas.forEach(
-
-                entrada=>{
-
-                    if(
-                        entrada.isIntersecting
-                    ){
-
-                        entrada.target
-                        .classList.add(
-                            "visible"
-                        );
-
-
-                        observer.unobserve(
-                            entrada.target
-                        );
-
-                    }
-
-                }
-
+            entrada.target
+            .classList.add(
+              "visible"
             );
 
-        },
-
-        {
-            threshold:.10
-        }
-
-    );
-
-
-    elementos.forEach(
-
-        elemento=>{
-
-            observer.observe(
-                elemento
+            observer.unobserve(
+              entrada.target
             );
 
+          }
+
         }
+      );
 
-    );
+    },
+    {
+      threshold:.10
+    }
+  );
 
+  elementos.forEach(
+    elemento=>{
+      observer.observe(
+        elemento
+      );
+    }
+  );
 }
 
 
-/* =========================================================
-   CARGAR FOTOS
+/* FOTOS JPG / JPEG / PNG */
 
-   BUSCA AUTOMÁTICAMENTE:
-   JPG
-   JPEG
-   PNG
-========================================================= */
+function cargarFoto(img){
 
-function cargarFoto(
-img
-){
+  const base=
+  img.dataset.base;
 
-    const base =
-    img.dataset.base;
+  const extensiones=[
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".JPG",
+    ".JPEG",
+    ".PNG"
+  ];
 
+  let indice=0;
 
-    const extensiones = [
+  function probar(){
 
-        ".jpg",
-        ".jpeg",
-        ".png",
-        ".JPG",
-        ".JPEG",
-        ".PNG"
+    if(
+      indice>=extensiones.length
+    ){
 
-    ];
-
-
-    let indice =
-    0;
-
-
-    function probar(){
-
-        if(
-            indice >=
-            extensiones.length
-        ){
-
-            img.style.display =
-            "none";
-
-            return;
-
-        }
-
-
-        const ruta =
-
-        base +
-        extensiones[
-            indice
-        ];
-
-
-        const prueba =
-
-        new Image();
-
-
-        prueba.onload =
-
-        ()=>{
-
-            img.src =
-            ruta;
-
-        };
-
-
-        prueba.onerror =
-
-        ()=>{
-
-            indice++;
-
-            probar();
-
-        };
-
-
-        prueba.src =
-        ruta;
-
+      img.style.display="none";
+      return;
     }
 
+    const ruta=
+    base+
+    extensiones[indice];
 
-    probar();
+    const prueba=
+    new Image();
 
+    prueba.onload=
+    ()=>{
+      img.src=ruta;
+    };
+
+    prueba.onerror=
+    ()=>{
+      indice++;
+      probar();
+    };
+
+    prueba.src=ruta;
+  }
+
+  probar();
 }
-
 
 document
 .querySelectorAll(
-    "img[data-base]"
+  "img[data-base]"
 )
 .forEach(
-    cargarFoto
+  cargarFoto
 );
 
 </script>
