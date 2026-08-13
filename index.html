@@ -6,22 +6,31 @@
 
 <meta
   name="viewport"
-  content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<meta name="theme-color" content="#220819">
+<meta name="theme-color" content="#26091d">
 
 <title>Kory ❤️ | 6 meses de nosotros</title>
 
 <style>
 
 /* =========================================================
-   GENERAL
+   GENERAL — MOBILE FIRST
 ========================================================= */
 
+:root{
+    --vino:#220819;
+    --vino2:#4b1234;
+    --rosa:#e3487e;
+    --rosa-claro:#ffd3e3;
+    --texto:#efd0dc;
+    --papel:#fff8f3;
+}
+
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -30,26 +39,26 @@ html{
 
 body{
     min-height:100vh;
+    min-height:100svh;
     overflow-x:hidden;
+    color:white;
 
     font-family:
     Arial,
     Helvetica,
     sans-serif;
 
-    color:white;
-
     background:
     radial-gradient(
-        circle at 50% -10%,
-        rgba(255,105,165,.19),
-        transparent 35%
+        circle at 50% -5%,
+        rgba(255,101,164,.18),
+        transparent 34%
     ),
     linear-gradient(
-        160deg,
-        #12050e,
-        #2d0a22,
-        #5f163e
+        165deg,
+        #11040d,
+        #2e0a22 52%,
+        #5a153b
     );
 
     -webkit-tap-highlight-color:transparent;
@@ -68,39 +77,26 @@ button{
     position:fixed;
     inset:0;
     z-index:0;
-
-    pointer-events:none;
     overflow:hidden;
+    pointer-events:none;
 }
 
 .estrella{
     position:absolute;
-
     border-radius:50%;
-
     background:white;
 
     box-shadow:
-    0 0 7px
-    rgba(255,255,255,.5);
+    0 0 6px rgba(255,255,255,.55);
 
     animation:
-    parpadear
-    4s
-    infinite
-    ease-in-out;
+    estrellaBrillo 4s
+    infinite ease-in-out;
 }
 
-@keyframes parpadear{
-
-    0%,100%{
-        opacity:.1;
-    }
-
-    50%{
-        opacity:.65;
-    }
-
+@keyframes estrellaBrillo{
+    0%,100%{opacity:.10}
+    50%{opacity:.65}
 }
 
 
@@ -110,27 +106,21 @@ button{
 
 .petalo{
     position:fixed;
-
-    top:-50px;
-
-    z-index:20;
-
+    top:-45px;
+    z-index:30;
     pointer-events:none;
 
     animation:
-    caer
-    linear
-    forwards;
+    caerPetalo linear forwards;
 }
 
-@keyframes caer{
+@keyframes caerPetalo{
 
     0%{
-        transform:
-        translateY(-50px)
-        rotate(0deg);
-
         opacity:0;
+        transform:
+        translateY(-45px)
+        rotate(0deg);
     }
 
     15%{
@@ -138,12 +128,12 @@ button{
     }
 
     100%{
-        transform:
-        translateY(110vh)
-        translateX(50px)
-        rotate(420deg);
-
         opacity:0;
+
+        transform:
+        translateY(110svh)
+        translateX(45px)
+        rotate(400deg);
     }
 
 }
@@ -155,39 +145,34 @@ button{
 
 .corazonFlotante{
     position:fixed;
-
-    bottom:-60px;
-
+    bottom:-50px;
     z-index:999;
-
     pointer-events:none;
 
     animation:
-    subirCorazon
-    linear
-    forwards;
+    subirCorazon linear forwards;
 }
 
 @keyframes subirCorazon{
 
     0%{
+        opacity:0;
+
         transform:
         translateY(0)
         rotate(0);
-
-        opacity:0;
     }
 
-    10%{
+    12%{
         opacity:1;
     }
 
     100%{
-        transform:
-        translateY(-120vh)
-        rotate(360deg);
-
         opacity:0;
+
+        transform:
+        translateY(-120svh)
+        rotate(360deg);
     }
 
 }
@@ -198,27 +183,21 @@ button{
 ========================================================= */
 
 .pantalla{
-    min-height:100svh;
-
     position:relative;
-
     z-index:5;
 
-    display:flex;
+    width:100%;
+    min-height:100vh;
+    min-height:100svh;
 
-    align-items:center;
+    display:flex;
     justify-content:center;
+    align-items:center;
 
     padding:
-    calc(
-        28px +
-        env(safe-area-inset-top)
-    )
+    calc(24px + env(safe-area-inset-top))
     18px
-    calc(
-        30px +
-        env(safe-area-inset-bottom)
-    );
+    calc(30px + env(safe-area-inset-bottom));
 }
 
 
@@ -228,64 +207,59 @@ button{
 
 #bloqueo{
     display:none;
-
     position:fixed;
-
     inset:0;
-
-    z-index:1000;
+    z-index:2000;
 
     background:
     radial-gradient(
         circle at center,
-        rgba(255,81,147,.18),
+        rgba(255,82,149,.16),
         transparent 43%
     ),
     linear-gradient(
         160deg,
         #10040c,
         #351027,
-        #661942
+        #621840
     );
 }
 
 .bloqueoContenido{
     width:100%;
-    max-width:430px;
-
+    max-width:420px;
     text-align:center;
 }
 
-.iconoBloqueo{
-    width:76px;
-    height:76px;
+.candado{
+    width:78px;
+    height:78px;
 
     margin:auto;
 
-    border-radius:50%;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
 
+    border-radius:50%;
+
     background:
-    rgba(255,255,255,.08);
+    rgba(255,255,255,.07);
 
     border:
-    1px solid
-    rgba(255,255,255,.11);
+    1px solid rgba(255,255,255,.11);
 
     box-shadow:
-    0 0 35px
-    rgba(255,83,149,.2);
+    0 0 35px rgba(255,74,140,.25);
+
+    animation:
+    latido 1.6s infinite;
 }
 
-.iconoBloqueo svg{
+.candado svg{
     width:38px;
     height:38px;
-
-    stroke:#ffd3e3;
+    stroke:#ffd4e3;
 }
 
 .bloqueoContenido h1{
@@ -296,44 +270,31 @@ button{
     serif;
 
     font-size:
-    clamp(
-        2.6rem,
-        13vw,
-        4.5rem
-    );
+    clamp(2.8rem,14vw,4.6rem);
 
-    color:#ffd5e5;
+    color:#ffd4e4;
 }
 
 .bloqueoContenido p{
     margin-top:24px;
-
-    color:#f0c7d7;
-
-    line-height:1.8;
+    line-height:1.75;
+    color:#edc5d6;
 }
 
 #contadorApertura{
-    margin-top:30px;
-
-    padding:18px;
+    margin-top:28px;
+    padding:18px 12px;
 
     border-radius:20px;
 
     border:
-    1px solid
-    rgba(255,255,255,.1);
+    1px solid rgba(255,255,255,.10);
 
     background:
-    rgba(255,255,255,.07);
-
-    font-weight:bold;
+    rgba(255,255,255,.065);
 
     line-height:1.7;
-
-    box-shadow:
-    0 15px 35px
-    rgba(0,0,0,.2);
+    font-weight:bold;
 }
 
 
@@ -342,56 +303,39 @@ button{
 ========================================================= */
 
 #inicio{
-    display:flex;
-
     text-align:center;
 }
 
 .portada{
     width:100%;
-
     max-width:430px;
 }
 
-.miniFecha{
-    margin-bottom:12px;
-
-    text-transform:uppercase;
-
+.fechaPortada{
+    margin-bottom:14px;
+    font-size:.72rem;
     letter-spacing:3px;
-
-    color:#dc9ab5;
-
-    font-size:.74rem;
+    color:#d895b1;
 }
 
-#inicio h1{
+.portada h1{
     font-family:
     Georgia,
     serif;
 
     font-size:
-    clamp(
-        3.4rem,
-        17vw,
-        5.5rem
-    );
+    clamp(3.6rem,18vw,5.7rem);
 
     line-height:1;
 
-    color:#ffd6e5;
+    color:#ffd4e4;
 
     text-shadow:
-    0 0 18px
-    rgba(255,76,145,.48);
+    0 0 25px rgba(255,69,141,.42);
 }
 
-#inicio .subtitulo{
-    margin-top:22px;
-
-    color:#f0bfd3;
-
-    line-height:1.7;
+.portadaTexto{
+    margin-top:21px;
 
     font-family:
     Georgia,
@@ -400,6 +344,27 @@ button{
     font-style:italic;
 
     font-size:1.08rem;
+    line-height:1.75;
+
+    color:#efbfd2;
+}
+
+#avisoPrueba{
+    margin-top:16px;
+
+    padding:8px 12px;
+
+    display:inline-block;
+
+    border-radius:999px;
+
+    border:
+    1px solid rgba(255,255,255,.09);
+
+    color:#cb91a9;
+
+    font-size:.70rem;
+    letter-spacing:.5px;
 }
 
 
@@ -408,32 +373,21 @@ button{
 ========================================================= */
 
 .sobreZona{
-    margin-top:60px;
+    margin-top:55px;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 }
 
 .sobre{
     position:relative;
 
-    width:
-    min(
-        79vw,
-        300px
-    );
+    width:min(79vw,300px);
+    height:min(52vw,195px);
 
-    height:
-    min(
-        52vw,
-        195px
-    );
-
+    min-height:170px;
     max-height:195px;
-    min-height:175px;
 
     cursor:pointer;
 
@@ -442,73 +396,65 @@ button{
     filter:
     drop-shadow(
         0 25px 30px
-        rgba(0,0,0,.42)
+        rgba(0,0,0,.40)
     );
 
     animation:
-    flotar
-    3s
-    ease-in-out
-    infinite;
+    flotar 3s infinite ease-in-out;
 }
 
-.sobreCuerpo{
+.sobreFondo{
     position:absolute;
-
     inset:0;
+
+    overflow:hidden;
 
     border-radius:10px;
 
-    background:#e99bb5;
-
-    overflow:hidden;
+    background:#e997b2;
 }
 
-.sobreCuerpo::before{
+.sobreFondo::before{
     content:"";
 
     position:absolute;
-
     inset:0;
 
-    background:#f6bdcf;
+    background:#f4bfd0;
 
     clip-path:
     polygon(
         0 0,
-        50% 58%,
+        50% 59%,
         100% 0
     );
 }
 
-.sobreCuerpo::after{
+.sobreFondo::after{
     content:"";
 
     position:absolute;
-
     inset:0;
-
     z-index:3;
 
-    background:#df88a7;
+    background:#dd84a3;
 
     clip-path:
     polygon(
         0 100%,
-        0 35%,
+        0 34%,
         50% 68%,
-        100% 35%,
+        100% 34%,
         100% 100%
     );
 }
 
-.tapaSobre{
+.tapa{
     position:absolute;
 
-    z-index:6;
-
-    left:0;
+    z-index:7;
     top:0;
+    left:0;
 
     width:100%;
     height:58%;
@@ -525,57 +471,51 @@ button{
     transform-origin:top;
 
     transition:
-    transform
-    .9s
-    cubic-bezier(.3,.7,.2,1);
+    transform .85s
+    cubic-bezier(.2,.75,.2,1);
 }
 
-.selloCorazon{
+.sello{
     position:absolute;
 
-    z-index:8;
+    z-index:10;
 
     left:50%;
     top:47%;
 
-    transform:
-    translate(-50%,-50%);
-
-    width:54px;
-    height:54px;
+    width:55px;
+    height:55px;
 
     display:flex;
-
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
     border-radius:50%;
+
+    transform:
+    translate(-50%,-50%);
 
     background:
     linear-gradient(
         135deg,
-        #e83875,
-        #a7194e
+        #e83b75,
+        #a3194d
     );
 
     box-shadow:
-    0 0 0 7px rgba(255,255,255,.13),
-    0 0 28px rgba(230,56,117,.45);
+    0 0 0 7px rgba(255,255,255,.12),
+    0 0 30px rgba(232,59,117,.40);
 
     transition:
-    opacity
-    .3s;
+    opacity .25s;
 
     animation:
-    latidoSello
-    1.2s
-    infinite;
+    latidoSello 1.25s infinite;
 }
 
-.selloCorazon svg{
-    width:27px;
-    height:27px;
-
+.sello svg{
+    width:28px;
+    height:28px;
     fill:white;
 }
 
@@ -583,38 +523,33 @@ button{
     animation:none;
 }
 
-.sobre.abierto .tapaSobre{
-    transform:
-    rotateX(180deg);
+.sobre.abierto .tapa{
+    transform:rotateX(180deg);
 }
 
-.sobre.abierto .selloCorazon{
+.sobre.abierto .sello{
     opacity:0;
 }
 
 .abreme{
     margin-top:27px;
 
-    font-weight:bold;
-
-    letter-spacing:4px;
-
-    color:#ffd4e3;
+    color:#ffd3e3;
 
     font-size:1.08rem;
+    font-weight:bold;
+    letter-spacing:4px;
 
     animation:
-    brilloTexto
-    2s
-    infinite;
+    brilloTexto 2s infinite;
 }
 
-.toque{
-    margin-top:8px;
+.toca{
+    margin-top:7px;
 
-    color:#be849b;
+    color:#ba8098;
 
-    font-size:.75rem;
+    font-size:.74rem;
 }
 
 
@@ -624,76 +559,40 @@ button{
 
 #contenido{
     display:none;
-
     position:relative;
-
     z-index:5;
 }
 
 .seccion{
     padding:
-    85px
+    78px
     16px;
 
     text-align:center;
 }
 
-.tituloSeccion{
+.titulo{
     font-family:
     Georgia,
     serif;
 
+    color:#ffd0e0;
+
     font-size:
-    clamp(
-        2.15rem,
-        10vw,
-        3.6rem
-    );
+    clamp(2.15rem,10.5vw,3.7rem);
 
     line-height:1.15;
-
-    color:#ffd1e2;
-
-    margin-bottom:17px;
 }
 
-.subtituloSeccion{
-    max-width:650px;
+.subtitulo{
+    max-width:620px;
 
     margin:
-    0 auto
-    42px;
+    17px auto 40px;
 
-    color:#dfadc1;
+    color:#dfadbf;
 
     line-height:1.75;
-}
-
-
-/* =========================================================
-   REVELADO
-========================================================= */
-
-.revelar{
-    opacity:0;
-
-    transform:
-    translateY(35px);
-
-    transition:
-    opacity
-    .8s
-    ease,
-    transform
-    .8s
-    ease;
-}
-
-.revelar.visible{
-    opacity:1;
-
-    transform:
-    translateY(0);
 }
 
 
@@ -701,55 +600,48 @@ button{
    CARTA
 ========================================================= */
 
-.seccionCarta{
+.cartaSeccion{
+    min-height:100vh;
     min-height:100svh;
 
-    padding:
-    25px
-    11px
-    42px;
-
     display:flex;
-
     justify-content:center;
     align-items:center;
+
+    padding:
+    15px 10px
+    30px;
 }
 
 .carta{
     position:relative;
 
     width:100%;
+    max-width:640px;
 
-    max-width:650px;
-
-    max-height:89svh;
+    height:auto;
+    max-height:90vh;
+    max-height:90svh;
 
     overflow-y:auto;
 
     padding:
-    39px
-    23px
-    42px;
+    36px 21px 40px;
 
     border-radius:18px;
 
-    color:#4b2835;
+    color:#4d2937;
 
     background:
     repeating-linear-gradient(
         0deg,
-        rgba(255,249,243,.98),
-        rgba(255,249,243,.98) 31px,
-        rgba(190,125,145,.08) 32px
+        rgba(255,249,244,.99),
+        rgba(255,249,244,.99) 31px,
+        rgba(188,119,142,.07) 32px
     );
 
     box-shadow:
-    0 26px 60px
-    rgba(0,0,0,.43),
-
-    inset
-    0 0 50px
-    rgba(136,74,80,.08);
+    0 25px 60px rgba(0,0,0,.42);
 
     -webkit-overflow-scrolling:touch;
 }
@@ -759,68 +651,46 @@ button{
 
     position:absolute;
 
-    inset:9px;
+    inset:8px;
 
     border:
-    1px solid
-    rgba(153,67,98,.18);
+    1px solid rgba(156,69,100,.15);
 
     border-radius:12px;
 
     pointer-events:none;
 }
 
-.carta::-webkit-scrollbar{
-    width:5px;
-}
-
-.carta::-webkit-scrollbar-thumb{
-    background:#c87495;
-
-    border-radius:20px;
-}
-
-.cartaCabecera{
+.carta h2{
     text-align:center;
 
-    margin-bottom:30px;
-}
-
-.carta h2{
     font-family:
     Georgia,
     serif;
 
     font-size:
-    clamp(
-        2.3rem,
-        11vw,
-        3.7rem
-    );
+    clamp(2.4rem,12vw,3.7rem);
 
     color:#9f2453;
-
-    line-height:1.12;
 }
 
 .fechaCarta{
-    margin-top:12px;
-
-    color:#9c697a;
-
-    font-size:.78rem;
-
-    letter-spacing:1.3px;
-}
-
-.separador{
-    margin:
-    22px
-    auto;
+    margin-top:11px;
 
     text-align:center;
 
-    color:#c44976;
+    color:#9c697a;
+
+    font-size:.76rem;
+    letter-spacing:1px;
+}
+
+.separador{
+    margin:23px 0;
+
+    text-align:center;
+
+    color:#bd426e;
 
     letter-spacing:8px;
 }
@@ -832,9 +702,9 @@ button{
     Georgia,
     serif;
 
-    font-size:1.05rem;
+    font-size:1.04rem;
 
-    line-height:1.87;
+    line-height:1.85;
 
     text-align:left;
 }
@@ -843,38 +713,32 @@ button{
     float:left;
 
     margin:
-    3px
-    7px
-    0
-    0;
+    4px 7px 0 0;
 
-    font-size:3.5rem;
+    color:#a72456;
+
+    font-size:3.4rem;
 
     line-height:.8;
-
-    color:#a52255;
 }
 
 .destacado{
     margin:
-    29px
-    0!important;
+    28px 0!important;
 
     text-align:center!important;
 
-    color:#a82355;
+    color:#a42355;
 
     font-weight:bold;
 
-    font-size:1.23rem!important;
+    font-size:1.20rem!important;
 }
 
 .firma{
-    margin-top:35px;
+    margin-top:32px;
 
     text-align:right;
-
-    color:#92214c;
 
     font-family:
     Georgia,
@@ -882,9 +746,9 @@ button{
 
     font-style:italic;
 
-    line-height:1.7;
+    color:#93214c;
 
-    font-size:1.15rem;
+    line-height:1.7;
 }
 
 
@@ -894,62 +758,52 @@ button{
 
 .boton{
     width:100%;
-
     max-width:420px;
 
-    padding:
-    16px
-    20px;
+    min-height:52px;
 
     margin:
-    8px
-    auto;
+    8px auto;
 
-    border:none;
+    padding:
+    14px 20px;
+
+    border:0;
 
     border-radius:999px;
 
-    cursor:pointer;
-
     color:white;
-
-    font-weight:bold;
-
-    font-size:.98rem;
-
-    line-height:1.35;
 
     background:
     linear-gradient(
         135deg,
-        #e5487f,
-        #a72356
+        #e4477e,
+        #a52356
     );
 
     box-shadow:
-    0 11px 27px
-    rgba(226,57,118,.27);
+    0 10px 25px
+    rgba(224,55,116,.25);
 
-    transition:
-    transform
-    .2s;
+    font-size:.97rem;
+    font-weight:bold;
+
+    cursor:pointer;
 
     touch-action:manipulation;
 }
 
 .boton:active{
-    transform:
-    scale(.97);
+    transform:scale(.97);
 }
 
 
 /* =========================================================
-   CONTADOR DE RELACIÓN
+   TIEMPO JUNTOS
 ========================================================= */
 
 .contadorRelacion{
     max-width:620px;
-
     margin:auto;
 }
 
@@ -958,70 +812,59 @@ button{
     height:70px;
 
     margin:
-    0 auto
-    24px;
-
-    border-radius:50%;
+    0 auto 24px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
+
+    border-radius:50%;
 
     background:
     linear-gradient(
         135deg,
-        #e94079,
-        #9f1d50
+        #e84079,
+        #a01f50
     );
 
     box-shadow:
     0 0 0 8px rgba(255,255,255,.05),
-    0 0 35px rgba(236,61,125,.32);
+    0 0 35px rgba(232,64,121,.30);
 
     animation:
-    latido
-    1.5s
-    infinite;
+    latido 1.6s infinite;
 }
 
 .corazonContador svg{
     width:34px;
     height:34px;
-
     fill:white;
 }
 
-.tarjetasTiempo{
+.tiempoGrid{
     display:grid;
 
     grid-template-columns:
-    repeat(
-        2,
-        1fr
-    );
+    repeat(2,minmax(0,1fr));
 
-    gap:12px;
+    gap:11px;
 
-    margin-top:30px;
+    margin-top:28px;
 }
 
-.tarjetaTiempo{
+.tiempoCard{
     padding:
-    21px
-    8px;
+    20px 7px;
 
     border-radius:18px;
 
-    background:
-    rgba(255,255,255,.07);
-
     border:
-    1px solid
-    rgba(255,255,255,.1);
+    1px solid rgba(255,255,255,.10);
 
-    backdrop-filter:
-    blur(7px);
+    background:
+    rgba(255,255,255,.065);
+
+    backdrop-filter:blur(6px);
 }
 
 .numeroTiempo{
@@ -1032,47 +875,42 @@ button{
     serif;
 
     font-size:
-    clamp(
-        2rem,
-        10vw,
-        3rem
-    );
+    clamp(2rem,10vw,3rem);
 
     color:#ffd0df;
 
     font-weight:bold;
+
+    font-variant-numeric:tabular-nums;
 }
 
 .etiquetaTiempo{
     display:block;
 
-    margin-top:6px;
+    margin-top:5px;
 
-    font-size:.68rem;
+    color:#c78fa6;
 
-    letter-spacing:1.4px;
+    font-size:.65rem;
+
+    letter-spacing:1.2px;
 
     text-transform:uppercase;
-
-    color:#c992a8;
 }
 
-.segundosGrande{
-    grid-column:
-    1 / -1;
+.segundos{
+    grid-column:1 / -1;
 }
 
-.desdeFecha{
-    margin-top:28px;
+.fechaInicio{
+    margin-top:26px;
 
-    color:#dcb0c2;
+    color:#dcaec0;
 
-    line-height:1.7;
-
-    font-size:.9rem;
+    font-size:.88rem;
 }
 
-.fraseTiempo{
+.fraseContador{
     margin-top:12px;
 
     color:#ffd0df;
@@ -1082,18 +920,16 @@ button{
     serif;
 
     font-style:italic;
-
-    line-height:1.6;
 }
 
-.progresoMes{
-    margin-top:28px;
-
+.barraFondo{
     height:7px;
 
-    border-radius:999px;
+    margin-top:27px;
 
     overflow:hidden;
+
+    border-radius:999px;
 
     background:
     rgba(255,255,255,.08);
@@ -1101,7 +937,6 @@ button{
 
 #barraMes{
     width:0%;
-
     height:100%;
 
     border-radius:999px;
@@ -1109,22 +944,19 @@ button{
     background:
     linear-gradient(
         90deg,
-        #cf3a71,
+        #d13971,
         #ff82ae
     );
 
-    transition:
-    width
-    .8s
-    ease;
+    transition:width .6s;
 }
 
-.textoProgreso{
+#textoProgreso{
     margin-top:9px;
 
-    color:#bd879e;
+    color:#b77f96;
 
-    font-size:.72rem;
+    font-size:.70rem;
 }
 
 
@@ -1132,7 +964,7 @@ button{
    6 MESES
 ========================================================= */
 
-.mesesGrid{
+.meses{
     max-width:620px;
 
     margin:auto;
@@ -1141,29 +973,24 @@ button{
 
     grid-template-columns:1fr;
 
-    gap:16px;
+    gap:15px;
 }
 
-.mesCard{
+.mes{
     padding:
-    26px
-    20px;
+    25px 19px;
 
     border-radius:20px;
 
     border:
-    1px solid
-    rgba(255,255,255,.1);
+    1px solid rgba(255,255,255,.10);
 
     background:
     linear-gradient(
         145deg,
-        rgba(255,255,255,.09),
-        rgba(255,255,255,.04)
+        rgba(255,255,255,.085),
+        rgba(255,255,255,.035)
     );
-
-    backdrop-filter:
-    blur(7px);
 }
 
 .mesNumero{
@@ -1171,40 +998,34 @@ button{
     Georgia,
     serif;
 
-    font-size:2.8rem;
-
-    color:
-    rgba(
-        255,
-        184,
-        209,
-        .22
-    );
+    font-size:2.6rem;
 
     font-weight:bold;
+
+    color:
+    rgba(255,184,209,.22);
 }
 
-.mesCard h3{
+.mes h3{
     margin:
-    -13px
-    0
-    8px;
+    -11px 0 8px;
 
     color:#ffd0df;
 }
 
-.mesCard p{
-    color:#eac8d6;
+.mes p{
+    color:#e7c3d1;
 
     line-height:1.7;
 }
 
 
 /* =========================================================
-   GALERÍA
+   FOTOS
 ========================================================= */
 
 .galeria{
+    width:100%;
     max-width:620px;
 
     margin:auto;
@@ -1213,43 +1034,42 @@ button{
 
     grid-template-columns:1fr;
 
-    gap:31px;
+    gap:30px;
 }
 
 .foto{
     width:100%;
 
     padding:
-    10px
-    10px
-    27px;
+    10px 10px 25px;
 
-    background:#fff;
+    overflow:hidden;
 
-    color:#683449;
+    border-radius:5px;
+
+    background:white;
+
+    color:#663448;
 
     box-shadow:
-    0 20px 42px
-    rgba(0,0,0,.34);
+    0 18px 40px rgba(0,0,0,.33);
+}
 
-    border-radius:4px;
-
-    transform:
-    rotate(-1deg);
+.foto:nth-child(odd){
+    transform:rotate(-.7deg);
 }
 
 .foto:nth-child(even){
-    transform:
-    rotate(1deg);
+    transform:rotate(.7deg);
 }
 
 .foto img{
     display:block;
 
     width:100%;
-
     height:auto;
 
+    max-height:72vh;
     max-height:72svh;
 
     object-fit:contain;
@@ -1258,10 +1078,10 @@ button{
 }
 
 .foto p{
-    padding:
-    0 8px;
+    margin-top:15px;
 
-    margin-top:17px;
+    padding:
+    0 7px;
 
     font-family:
     Georgia,
@@ -1284,115 +1104,123 @@ button{
 
     display:grid;
 
-    gap:17px;
+    gap:15px;
 }
 
 .razon{
     position:relative;
 
-    min-height:84px;
+    min-height:82px;
 
     padding:
-    19px
-    18px
-    19px
-    72px;
+    18px 17px
+    18px 69px;
+
+    overflow:hidden;
+
+    border-radius:19px;
 
     border:
-    1px solid
-    rgba(255,255,255,.1);
-
-    border-radius:20px;
+    1px solid rgba(255,255,255,.10);
 
     background:
-    rgba(255,255,255,.065);
-
-    backdrop-filter:
-    blur(7px);
+    rgba(255,255,255,.06);
 
     text-align:left;
 
     cursor:pointer;
-
-    overflow:hidden;
 }
 
-.numeroRazon{
+.iconoRazon{
     position:absolute;
 
-    left:17px;
+    left:16px;
     top:18px;
 
-    width:41px;
-    height:41px;
-
-    border-radius:50%;
+    width:39px;
+    height:39px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    background:#dc3e76;
+    border-radius:50%;
+
+    background:#da3d74;
 }
 
-.numeroRazon svg{
-    width:20px;
-    height:20px;
-
+.iconoRazon svg{
+    width:19px;
+    height:19px;
     fill:white;
 }
 
 .razon h3{
-    color:#ffd0e0;
+    color:#ffd0df;
+
+    font-size:1rem;
 
     line-height:1.35;
-
-    font-size:1.03rem;
 }
 
-.razonTexto{
-    max-height:0;
+.pistaRazon{
+    margin-top:6px;
 
-    opacity:0;
+    color:#b57c94;
+
+    font-size:.70rem;
+}
+
+.textoRazon{
+    max-height:0;
 
     overflow:hidden;
 
-    margin-top:0;
+    opacity:0;
 
-    color:#edccda;
+    color:#ecc9d7;
 
-    line-height:1.72;
+    line-height:1.7;
 
     transition:
-    max-height
-    .6s
-    ease,
-    opacity
-    .4s
-    ease,
-    margin
-    .4s;
+    max-height .5s,
+    opacity .35s,
+    margin .35s;
 }
 
-.razon.abierta .razonTexto{
-    max-height:280px;
+.razon.abierta .textoRazon{
+    max-height:300px;
+
+    margin-top:10px;
 
     opacity:1;
-
-    margin-top:11px;
 }
 
-.tocarRazon{
-    margin-top:6px;
-
-    color:#bd869d;
-
-    font-size:.72rem;
-}
-
-.razon.abierta .tocarRazon{
+.razon.abierta .pistaRazon{
     display:none;
+}
+
+
+/* =========================================================
+   REVELADO
+========================================================= */
+
+.revelar{
+    opacity:0;
+
+    transform:
+    translateY(28px);
+
+    transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+
+.revelar.visible{
+    opacity:1;
+
+    transform:
+    translateY(0);
 }
 
 
@@ -1401,85 +1229,74 @@ button{
 ========================================================= */
 
 #final{
+    min-height:100vh;
     min-height:100svh;
 
     display:flex;
-
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
     padding:
-    70px
-    18px
-    65px;
+    65px 18px;
 
     text-align:center;
 }
 
-.finalContenido{
+.final{
     width:100%;
-
-    max-width:650px;
+    max-width:640px;
 }
 
 .finalPequeno{
-    color:#cc91aa;
+    margin-bottom:18px;
+
+    color:#c88ea6;
+
+    font-size:.70rem;
 
     letter-spacing:2px;
 
     text-transform:uppercase;
-
-    font-size:.72rem;
-
-    margin-bottom:20px;
 }
 
-.finalContenido h2{
+.final h2{
     font-family:
     Georgia,
     serif;
 
     font-size:
-    clamp(
-        2.3rem,
-        11vw,
-        4rem
-    );
+    clamp(2.3rem,11.5vw,4rem);
 
-    line-height:1.17;
+    line-height:1.16;
 
-    color:#ffd1e2;
+    color:#ffd0e0;
 }
 
-.finalContenido p{
+.final > p{
     margin:
-    25px
-    auto;
+    24px auto;
 
-    color:#eec4d5;
+    color:#ebc3d3;
 
     line-height:1.8;
 }
 
 .botonesFinales{
     display:flex;
-
     flex-direction:column;
 
-    gap:7px;
+    gap:5px;
 
-    margin-top:27px;
+    margin-top:25px;
 }
 
 #sorpresa{
     display:none;
 
-    margin-top:42px;
+    margin-top:40px;
 
     animation:
-    aparecer
-    1s
-    ease;
+    aparecer .9s ease;
 }
 
 #sorpresa h3{
@@ -1488,54 +1305,60 @@ button{
     serif;
 
     font-size:
-    clamp(
-        2rem,
-        10vw,
-        3.5rem
-    );
+    clamp(2rem,10vw,3.4rem);
 
-    line-height:1.2;
+    color:#ffd0df;
+}
 
-    color:#ffd1df;
+#sorpresa p{
+    margin:
+    22px auto;
+
+    line-height:1.8;
+
+    color:#ecc5d5;
 }
 
 
 /* =========================================================
-   VOLVER A CARTA
+   BOTÓN VOLVER A CARTA
 ========================================================= */
 
-#volverCartaFlotante{
+#volverCarta{
     display:none;
 
     position:fixed;
 
-    right:14px;
-    bottom:14px;
+    right:13px;
+
+    bottom:
+    calc(
+        13px +
+        env(safe-area-inset-bottom)
+    );
 
     z-index:900;
 
     width:50px;
     height:50px;
 
-    border:none;
+    border:0;
 
     border-radius:50%;
 
     background:
-    rgba(66,15,44,.88);
+    rgba(63,14,42,.90);
 
     box-shadow:
-    0 10px 30px
-    rgba(0,0,0,.3);
+    0 8px 25px rgba(0,0,0,.30);
 
-    cursor:pointer;
+    backdrop-filter:blur(8px);
 }
 
-#volverCartaFlotante svg{
+#volverCarta svg{
     width:24px;
     height:24px;
-
-    stroke:#ffd4e3;
+    stroke:#ffd2e2;
 }
 
 
@@ -1544,14 +1367,8 @@ button{
 ========================================================= */
 
 @keyframes latido{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.1);
-    }
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
 }
 
 @keyframes latidoSello{
@@ -1565,48 +1382,30 @@ button{
     50%{
         transform:
         translate(-50%,-50%)
-        scale(1.13);
+        scale(1.12);
     }
 }
 
 @keyframes flotar{
-
-    0%,100%{
-        transform:
-        translateY(0);
-    }
-
-    50%{
-        transform:
-        translateY(-10px);
-    }
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-9px)}
 }
 
 @keyframes brilloTexto{
-
-    0%,100%{
-        opacity:.65;
-    }
-
-    50%{
-        opacity:1;
-    }
+    0%,100%{opacity:.65}
+    50%{opacity:1}
 }
 
 @keyframes aparecer{
 
     from{
         opacity:0;
-
-        transform:
-        translateY(24px);
+        transform:translateY(20px);
     }
 
     to{
         opacity:1;
-
-        transform:
-        translateY(0);
+        transform:translateY(0);
     }
 }
 
@@ -1619,76 +1418,69 @@ button{
 
     .seccion{
         padding:
-        105px
-        25px;
+        100px 24px;
     }
 
     .carta{
         padding:
-        58px
-        62px;
+        55px 58px;
     }
 
     .carta p{
         text-align:justify;
     }
 
-    .tarjetasTiempo{
+    .tiempoGrid{
         grid-template-columns:
-        repeat(
-            5,
-            1fr
-        );
+        repeat(5,1fr);
     }
 
-    .segundosGrande{
+    .segundos{
         grid-column:auto;
     }
 
-    .mesesGrid{
+    .meses{
         grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
+        repeat(2,1fr);
 
         max-width:900px;
     }
 
     .galeria{
         grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
+        repeat(2,1fr);
 
         max-width:1000px;
     }
 
-    .foto img{
-        max-height:520px;
-    }
-
-    .razones{
-        max-width:850px;
-    }
-
     .boton{
         width:auto;
-
         min-width:260px;
     }
 
     .botonesFinales{
         flex-direction:row;
-
         justify-content:center;
     }
 
 }
 
-</style>
 
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+        animation-duration:.01ms!important;
+        transition-duration:.01ms!important;
+        scroll-behavior:auto!important;
+    }
+
+}
+
+</style>
 </head>
 
 
@@ -1697,6 +1489,10 @@ button{
 
 <!-- =========================================================
      MÚSICA INVISIBLE
+
+     No suena al entrar.
+     Empieza solo cuando se toca ÁBREME.
+     loop = vuelve a comenzar al terminar.
 ========================================================= -->
 
 <audio
@@ -1725,7 +1521,7 @@ class="pantalla">
 <div class="bloqueoContenido">
 
 
-<div class="iconoBloqueo">
+<div class="candado">
 
 <svg
 viewBox="0 0 24 24"
@@ -1761,13 +1557,9 @@ Preparé algo especialmente para ti.
 
 <br><br>
 
-Hay regalos que no necesitan
-estar dentro de una caja...
-
-<br>
-
-solamente necesitan llegar
-en el momento correcto.
+Hay cosas bonitas
+que merecen esperar
+hasta el momento exacto.
 
 </p>
 
@@ -1795,7 +1587,7 @@ class="pantalla">
 <div class="portada">
 
 
-<div class="miniFecha">
+<div class="fechaPortada">
 
 13 · 08 · 2026
 
@@ -1803,22 +1595,27 @@ class="pantalla">
 
 
 <h1>
-
 Kory
-
 </h1>
 
 
-<p class="subtitulo">
+<p class="portadaTexto">
 
 Seis meses de nosotros.
 
 <br><br>
 
-Y algo que mi corazón
+Hay algo que mi corazón
 quiere decirte...
 
 </p>
+
+
+<div id="avisoPrueba">
+
+MODO PRUEBA · VISTA LIBRE
+
+</div>
 
 
 <div class="sobreZona">
@@ -1830,12 +1627,12 @@ class="sobre"
 onclick="abrirRegalo()">
 
 
-<div class="sobreCuerpo"></div>
+<div class="sobreFondo"></div>
 
-<div class="tapaSobre"></div>
+<div class="tapa"></div>
 
 
-<div class="selloCorazon">
+<div class="sello">
 
 <svg viewBox="0 0 24 24">
 
@@ -1851,16 +1648,11 @@ d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3
 
 
 <div class="abreme">
-
 ÁBREME
-
 </div>
 
-
-<div class="toque">
-
+<div class="toca">
 toca el sobre
-
 </div>
 
 
@@ -1876,8 +1668,9 @@ toca el sobre
 ========================================================= -->
 
 <button
-id="volverCartaFlotante"
-onclick="volverCarta()">
+id="volverCarta"
+onclick="irA('carta')"
+aria-label="Volver a la carta">
 
 <svg
 viewBox="0 0 24 24"
@@ -1899,6 +1692,10 @@ d="m4 7 8 6 8-6"/>
 </button>
 
 
+<!-- =========================================================
+     CONTENIDO
+========================================================= -->
+
 <main id="contenido">
 
 
@@ -1908,18 +1705,14 @@ d="m4 7 8 6 8-6"/>
 
 <section
 id="carta"
-class="seccionCarta">
+class="cartaSeccion">
+
 
 <div class="carta">
 
 
-<div class="cartaCabecera">
-
-
 <h2>
-
 Mi Kory
-
 </h2>
 
 
@@ -1931,12 +1724,7 @@ Mi Kory
 
 
 <div class="separador">
-
 ♥ ♥ ♥
-
-</div>
-
-
 </div>
 
 
@@ -1948,9 +1736,10 @@ significa que por fin llegó nuestro momento.
 Hoy cumplimos seis meses,
 y aunque en un calendario pueda parecer
 solamente medio año,
-para mí han sido meses capaces de guardar
-muchísimos recuerdos que ya ocupan
-un lugar enorme en mi corazón.
+para mí han sido meses capaces
+de guardar muchísimos recuerdos
+que ya ocupan un lugar enorme
+en mi corazón.
 
 </p>
 
@@ -1970,12 +1759,16 @@ lo importante que eres para mí.
 
 <p>
 
-Han sido seis meses de conversaciones,
-fotografías, risas, ocurrencias,
+Han sido seis meses
+de conversaciones,
+fotografías,
+risas,
+ocurrencias,
 pequeños detalles,
-abrazos y momentos que quizá parecían
-sencillos cuando sucedieron,
-pero que ahora son parte
+abrazos
+y momentos que quizá parecían sencillos
+cuando sucedieron,
+pero que ahora forman parte
 de nuestra historia.
 
 </p>
@@ -1984,13 +1777,15 @@ de nuestra historia.
 <p>
 
 Entre tantas personas,
-tantos caminos y tantas posibilidades,
+tantos caminos
+y tantas posibilidades,
 la vida hizo que tú y yo coincidiéramos.
 
 Y desde entonces comenzamos,
 poco a poco,
-a escribir algo que solamente
-nosotros conocemos completamente.
+a escribir algo
+que solamente nosotros
+conocemos completamente.
 
 </p>
 
@@ -2025,7 +1820,8 @@ en mi vida.
 <p>
 
 Algunas veces decirte simplemente
-“te amo” parece demasiado pequeño
+“te amo”
+parece demasiado pequeño
 para explicar todo lo que realmente
 quiero decirte.
 
@@ -2054,8 +1850,10 @@ y recordarte lo valiosa que eres.
 
 <p>
 
-A veces pienso en todas las cosas
-que ya vivimos en solamente seis meses
+A veces pienso
+en todas las cosas
+que ya vivimos
+en solamente seis meses
 y entonces me pregunto
 cuántos recuerdos más podremos construir
 si seguimos caminando juntos.
@@ -2085,7 +1883,8 @@ Nos faltan risas,
 aventuras,
 días inesperados
 y pequeños momentos
-que algún día miraremos hacia atrás
+que algún día
+miraremos hacia atrás
 para decir:
 
 </p>
@@ -2100,8 +1899,9 @@ para decir:
 
 <p>
 
-Y quizá eso es una
-de las cosas que más me emocionan:
+Y quizá eso
+es una de las cosas
+que más me emocionan:
 
 saber que todo esto
 apenas está comenzando.
@@ -2126,8 +1926,8 @@ verte crecer,
 verte alcanzar tus sueños
 y seguir construyendo contigo
 momentos que algún día
-se conviertan en nuestros
-recuerdos favoritos.
+se conviertan
+en nuestros recuerdos favoritos.
 
 </p>
 
@@ -2141,8 +1941,8 @@ por nuestras fotografías,
 por nuestras conversaciones
 y por todas esas pequeñas cosas
 que poco a poco
-te han convertido en alguien
-tan importante para mí.
+te han convertido
+en alguien tan importante para mí.
 
 </p>
 
@@ -2177,7 +1977,7 @@ para mi Kory ♥
 </div>
 
 
-<div style="text-align:center;margin-top:40px">
+<div style="margin-top:38px;text-align:center">
 
 <button
 class="boton"
@@ -2203,6 +2003,7 @@ Ver nuestro tiempo juntos
 id="tiempoJuntos"
 class="seccion">
 
+
 <div class="contadorRelacion revelar">
 
 
@@ -2218,25 +2019,26 @@ d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3
 </div>
 
 
-<h2 class="tituloSeccion">
+<h2 class="titulo">
 
 Nuestro tiempo juntos
 
 </h2>
 
 
-<p class="subtituloSeccion">
+<p class="subtitulo">
 
 Desde que comenzó esta historia,
-cada segundo también forma parte de nosotros.
+cada segundo también forma parte
+de nosotros.
 
 </p>
 
 
-<div class="tarjetasTiempo">
+<div class="tiempoGrid">
 
 
-<div class="tarjetaTiempo">
+<div class="tiempoCard">
 
 <span
 id="mesesJuntos"
@@ -2247,15 +2049,13 @@ class="numeroTiempo">
 </span>
 
 <span class="etiquetaTiempo">
-
 meses
-
 </span>
 
 </div>
 
 
-<div class="tarjetaTiempo">
+<div class="tiempoCard">
 
 <span
 id="diasJuntos"
@@ -2266,15 +2066,13 @@ class="numeroTiempo">
 </span>
 
 <span class="etiquetaTiempo">
-
 días
-
 </span>
 
 </div>
 
 
-<div class="tarjetaTiempo">
+<div class="tiempoCard">
 
 <span
 id="horasJuntos"
@@ -2285,15 +2083,13 @@ class="numeroTiempo">
 </span>
 
 <span class="etiquetaTiempo">
-
 horas
-
 </span>
 
 </div>
 
 
-<div class="tarjetaTiempo">
+<div class="tiempoCard">
 
 <span
 id="minutosJuntos"
@@ -2304,15 +2100,13 @@ class="numeroTiempo">
 </span>
 
 <span class="etiquetaTiempo">
-
 minutos
-
 </span>
 
 </div>
 
 
-<div class="tarjetaTiempo segundosGrande">
+<div class="tiempoCard segundos">
 
 <span
 id="segundosJuntos"
@@ -2323,9 +2117,7 @@ class="numeroTiempo">
 </span>
 
 <span class="etiquetaTiempo">
-
 segundos
-
 </span>
 
 </div>
@@ -2334,41 +2126,39 @@ segundos
 </div>
 
 
-<div class="desdeFecha">
+<div class="fechaInicio">
 
 Desde el 13 de febrero de 2026
 
 </div>
 
 
-<div class="fraseTiempo">
+<div class="fraseContador">
 
 “Y cada segundo sigo eligiéndote.”
 
 </div>
 
 
-<div class="progresoMes">
+<div class="barraFondo">
 
 <div id="barraMes"></div>
 
 </div>
 
 
-<div
-id="textoProgresoMes"
-class="textoProgreso">
+<div id="textoProgreso">
 
-Caminando hacia nuestro siguiente mes juntos...
+Caminando hacia nuestro siguiente mes...
 
 </div>
 
 
-<div style="margin-top:42px">
+<div style="margin-top:40px">
 
 <button
 class="boton"
-onclick="irA('seisMeses')">
+onclick="irA('meses')">
 
 Continuar nuestra historia
 
@@ -2379,6 +2169,7 @@ Continuar nuestra historia
 
 </div>
 
+
 </section>
 
 
@@ -2387,11 +2178,11 @@ Continuar nuestra historia
 ========================================================= -->
 
 <section
-id="seisMeses"
+id="meses"
 class="seccion">
 
 
-<h2 class="tituloSeccion revelar">
+<h2 class="titulo revelar">
 
 6 meses,
 6 pequeños recuerdos
@@ -2399,7 +2190,7 @@ class="seccion">
 </h2>
 
 
-<p class="subtituloSeccion revelar">
+<p class="subtitulo revelar">
 
 No tienen que ser meses perfectos.
 
@@ -2415,12 +2206,14 @@ algo bonito que recordar.
 </p>
 
 
-<div class="mesesGrid">
+<div class="meses">
 
 
-<div class="mesCard revelar">
+<div class="mes revelar">
 
-<div class="mesNumero">01</div>
+<div class="mesNumero">
+01
+</div>
 
 <h3>
 El comienzo
@@ -2437,9 +2230,11 @@ que íbamos a vivir juntos.
 </div>
 
 
-<div class="mesCard revelar">
+<div class="mes revelar">
 
-<div class="mesNumero">02</div>
+<div class="mesNumero">
+02
+</div>
 
 <h3>
 Conocernos
@@ -2458,9 +2253,11 @@ que te hacen ser tú.
 </div>
 
 
-<div class="mesCard revelar">
+<div class="mes revelar">
 
-<div class="mesNumero">03</div>
+<div class="mesNumero">
+03
+</div>
 
 <h3>
 Nuestras primeras historias
@@ -2478,9 +2275,11 @@ de nuestros recuerdos.
 </div>
 
 
-<div class="mesCard revelar">
+<div class="mes revelar">
 
-<div class="mesNumero">04</div>
+<div class="mesNumero">
+04
+</div>
 
 <h3>
 Más nosotros
@@ -2491,16 +2290,19 @@ Más nosotros
 Más confianza,
 más recuerdos,
 más fotografías
-y más razones para quererte.
+y más razones
+para quererte.
 
 </p>
 
 </div>
 
 
-<div class="mesCard revelar">
+<div class="mes revelar">
 
-<div class="mesNumero">05</div>
+<div class="mesNumero">
+05
+</div>
 
 <h3>
 Seguir eligiéndonos
@@ -2511,16 +2313,19 @@ Seguir eligiéndonos
 Entender que una relación
 también se construye
 con paciencia,
-cariño y pequeños detalles.
+cariño
+y pequeños detalles.
 
 </p>
 
 </div>
 
 
-<div class="mesCard revelar">
+<div class="mes revelar">
 
-<div class="mesNumero">06</div>
+<div class="mesNumero">
+06
+</div>
 
 <h3>
 Hoy
@@ -2531,8 +2336,8 @@ Hoy
 Medio año después,
 aquí estamos,
 con recuerdos detrás
-y muchas páginas todavía
-por escribir.
+y muchísimas páginas
+todavía por escribir.
 
 </p>
 
@@ -2542,7 +2347,7 @@ por escribir.
 </div>
 
 
-<div style="margin-top:48px">
+<div style="margin-top:45px">
 
 <button
 class="boton"
@@ -2567,14 +2372,14 @@ id="fotos"
 class="seccion">
 
 
-<h2 class="tituloSeccion revelar">
+<h2 class="titulo revelar">
 
 Nuestros recuerdos
 
 </h2>
 
 
-<p class="subtituloSeccion revelar">
+<p class="subtitulo revelar">
 
 Once pequeños pedacitos
 de nuestros primeros seis meses.
@@ -2591,212 +2396,75 @@ esta colección sea enorme.
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto1"
-alt="Nuestro recuerdo 1">
-
-<p>
-
-Tal vez fue solo un momento,
-pero contigo aprendí
-que los momentos pequeños
-también pueden quedarse para siempre.
-
-</p>
-
+<img data-base="fotos/foto1" alt="Recuerdo 1">
+<p>Los momentos pequeños contigo también pueden quedarse para siempre.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto2"
-alt="Nuestro recuerdo 2">
-
-<p>
-
-Un recuerdo de nosotros
-que siempre tendrá
-un lugar especial
-en mi corazón.
-
-</p>
-
+<img data-base="fotos/foto2" alt="Recuerdo 2">
+<p>Un recuerdo de nosotros que siempre tendrá un lugar especial en mi corazón.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto3"
-alt="Nuestro recuerdo 3">
-
-<p>
-
-Me encanta pensar
-que esta fotografía guarda algo
-que nadie puede repetir:
-
-ese instante exacto contigo.
-
-</p>
-
+<img data-base="fotos/foto3" alt="Recuerdo 3">
+<p>Esta fotografía guarda algo imposible de repetir: ese instante exacto contigo.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto4"
-alt="Nuestro recuerdo 4">
-
-<p>
-
-Entre tantas fotografías,
-algunas simplemente
-se sienten un poquito
-más nuestras.
-
-</p>
-
+<img data-base="fotos/foto4" alt="Recuerdo 4">
+<p>Entre tantas fotografías, algunas simplemente se sienten un poquito más nuestras.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto5"
-alt="Nuestro recuerdo 5">
-
-<p>
-
-Hay tranquilidad
-en saber que existe
-una persona con quien
-simplemente puedo estar.
-
-</p>
-
+<img data-base="fotos/foto5" alt="Recuerdo 5">
+<p>Hay tranquilidad en saber que existe una persona con quien simplemente puedo estar.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto6"
-alt="Nuestro recuerdo 6">
-
-<p>
-
-Mi lugar favorito,
-muchas veces,
-no es un lugar.
-
-Es estar contigo.
-
-</p>
-
+<img data-base="fotos/foto6" alt="Recuerdo 6">
+<p>Mi lugar favorito muchas veces no es un lugar. Es estar contigo.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto7"
-alt="Nuestro recuerdo 7">
-
-<p>
-
-Otra pequeña página
-de esta historia
-que todavía estamos
-comenzando a escribir.
-
-</p>
-
+<img data-base="fotos/foto7" alt="Recuerdo 7">
+<p>Otra pequeña página de esta historia que todavía estamos comenzando a escribir.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto8"
-alt="Nuestro recuerdo 8">
-
-<p>
-
-Qué bonito
-poder mirar hacia atrás
-y encontrar recuerdos
-donde estamos los dos.
-
-</p>
-
+<img data-base="fotos/foto8" alt="Recuerdo 8">
+<p>Qué bonito poder mirar hacia atrás y encontrar recuerdos donde estamos los dos.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto9"
-alt="Nuestro recuerdo 9">
-
-<p>
-
-Esta fotografía guarda
-otra pequeña parte
-de nuestros primeros
-seis meses.
-
-</p>
-
+<img data-base="fotos/foto9" alt="Recuerdo 9">
+<p>Otra pequeña parte de nuestros primeros seis meses.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto10"
-alt="Nuestro recuerdo 10">
-
-<p>
-
-Incluso cuando solamente
-somos un reflejo,
-sigue existiendo algo
-que me encanta ver:
-
-nosotros.
-
-</p>
-
+<img data-base="fotos/foto10" alt="Recuerdo 10">
+<p>Incluso cuando solamente somos un reflejo, sigue existiendo algo que me encanta ver: nosotros.</p>
 </div>
 
 
 <div class="foto revelar">
-
-<img
-data-base="fotos/foto11"
-alt="Nuestro recuerdo 11">
-
-<p>
-
-Entre nuestra realidad
-y nuestros pequeños mundos,
-siempre elegiría
-una historia donde
-estemos los dos.
-
-</p>
-
+<img data-base="fotos/foto11" alt="Recuerdo 11">
+<p>Siempre elegiría una historia donde estemos los dos.</p>
 </div>
 
 
 </div>
 
 
-<div style="margin-top:52px">
+<div style="margin-top:48px">
 
 <button
 class="boton"
@@ -2813,7 +2481,7 @@ Hay algo más que quiero decirte
 
 
 <!-- =========================================================
-     10 RAZONES
+     RAZONES
 ========================================================= -->
 
 <section
@@ -2821,7 +2489,7 @@ id="razones"
 class="seccion">
 
 
-<h2 class="tituloSeccion revelar">
+<h2 class="titulo revelar">
 
 10 razones por las que
 te amo tanto
@@ -2829,7 +2497,7 @@ te amo tanto
 </h2>
 
 
-<p class="subtituloSeccion revelar">
+<p class="subtitulo revelar">
 
 Podría escribir muchas más.
 
@@ -2841,93 +2509,10 @@ para descubrirlas.
 </p>
 
 
-<div class="razones">
+<div id="listaRazones" class="razones"></div>
 
 
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>1. Por tu sonrisa</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque una sonrisa tuya puede cambiar completamente mi día.</p>
-</div>
-
-
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>2. Por tu manera de ser</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque eres tú, con tus virtudes, tu carácter, tus ocurrencias y todas esas pequeñas cosas que te hacen diferente.</p>
-</div>
-
-
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>3. Porque contigo puedo ser yo</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque a tu lado puedo mostrarme tal como soy y sentir que no necesito ser alguien diferente.</p>
-</div>
-
-
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>4. Por todos nuestros recuerdos</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque en solamente seis meses ya hemos creado momentos que no cambiaría por nada.</p>
-</div>
-
-
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>5. Porque me importan tus sueños</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque quiero verte crecer, cumplir tus metas y sentirte orgullosa de todo aquello que eres capaz de conseguir.</p>
-</div>
-
-
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>6. Porque haces especial lo cotidiano</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque contigo no necesito un lugar extraordinario. Incluso un momento sencillo puede convertirse en algo especial.</p>
-</div>
-
-
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>7. Porque me encanta conocerte</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque siento que todavía tengo muchísimo que descubrir de ti y quiero seguir haciéndolo.</p>
-</div>
-
-
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>8. Porque me haces imaginar el futuro</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque cuando pienso en nuevas experiencias, aventuras, viajes y recuerdos, muchas veces te imagino a mi lado.</p>
-</div>
-
-
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>9. Porque eres mi Kory</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque no existe otra persona con tu historia, tu manera de mirar, tu forma de reír y todo aquello que te hace ser tú.</p>
-</div>
-
-
-<div class="razon revelar" onclick="abrirRazon(this)">
-<div class="numeroRazon"><svg viewBox="0 0 24 24"><path d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/></svg></div>
-<h3>10. Porque estos seis meses me hacen querer muchos más contigo</h3>
-<div class="tocarRazon">Toca para descubrir</div>
-<p class="razonTexto">Porque esto apenas comienza y quiero seguir creando nuevas historias, nuevos recuerdos y nuevos capítulos contigo.</p>
-</div>
-
-
-</div>
-
-
-<div style="margin-top:50px">
+<div style="margin-top:45px">
 
 <button
 class="boton"
@@ -2950,7 +2535,7 @@ Tengo una última pregunta
 <section id="final">
 
 
-<div class="finalContenido">
+<div class="final">
 
 
 <div class="finalPequeno">
@@ -3032,12 +2617,6 @@ mi Kory.
 
 <br><br>
 
-Gracias por estos
-primeros meses
-de nuestra historia.
-
-<br><br>
-
 No sé cuántas páginas
 tendrá nuestra historia,
 pero sí sé que quiero
@@ -3052,16 +2631,14 @@ muchas más contigo.
 
 Te amo muchísimo.
 
-❤️
-
 </p>
 
 
 <button
 class="boton"
-onclick="volverCarta()">
+onclick="irA('carta')">
 
-💌 Volver a leer mi carta
+Volver a leer mi carta
 
 </button>
 
@@ -3081,20 +2658,24 @@ onclick="volverCarta()">
 <script>
 
 /* =========================================================
-   VERSIÓN FINAL
+   IMPORTANTE
 
-   false = BLOQUEO ACTIVADO
+   AHORA ESTÁ EN MODO PRUEBA PARA QUE PUEDAS
+   VERLO EN CELULAR SIN ESPERAR.
+
+   CUANDO TODO ESTÉ PERFECTO:
+   cambia true por false.
 ========================================================= */
 
-const MODO_PRUEBA = false;
+const MODO_PRUEBA = true;
 
 
 /* =========================================================
-   APERTURA
+   APERTURA FINAL
 
-   12 DE AGOSTO DE 2026
+   12 de agosto de 2026
    11:59 PM
-   HORA DE PERÚ UTC-5
+   hora de Perú
 ========================================================= */
 
 const fechaApertura =
@@ -3104,7 +2685,7 @@ new Date(
 
 
 /* =========================================================
-   INICIO DE LA RELACIÓN
+   FECHA DE INICIO
 ========================================================= */
 
 const fechaInicioRelacion =
@@ -3114,47 +2695,33 @@ new Date(
 
 
 /* =========================================================
-   ELEMENTOS
+   REFERENCIAS
 ========================================================= */
 
 const bloqueo =
-document.getElementById(
-"bloqueo"
-);
-
+document.getElementById("bloqueo");
 
 const inicio =
-document.getElementById(
-"inicio"
-);
-
+document.getElementById("inicio");
 
 const contenido =
-document.getElementById(
-"contenido"
-);
-
-
-const contadorApertura =
-document.getElementById(
-"contadorApertura"
-);
-
+document.getElementById("contenido");
 
 const musica =
-document.getElementById(
-"musica"
-);
+document.getElementById("musica");
 
+const contadorApertura =
+document.getElementById("contadorApertura");
 
-const volverCartaFlotante =
-document.getElementById(
-"volverCartaFlotante"
-);
+const avisoPrueba =
+document.getElementById("avisoPrueba");
+
+const botonVolver =
+document.getElementById("volverCarta");
 
 
 /* =========================================================
-   CUENTA REGRESIVA
+   BLOQUEO / CUENTA REGRESIVA
 ========================================================= */
 
 function comprobarFecha(){
@@ -3167,14 +2734,23 @@ function comprobarFecha(){
         inicio.style.display =
         "flex";
 
+        avisoPrueba.style.display =
+        "inline-block";
+
         return;
     }
 
 
-    const diferencia =
+    avisoPrueba.style.display =
+    "none";
 
-    fechaApertura -
+
+    const ahora =
     new Date();
+
+
+    const diferencia =
+    fechaApertura - ahora;
 
 
     if(diferencia <= 0){
@@ -3199,17 +2775,13 @@ function comprobarFecha(){
 
     const dias =
     Math.floor(
-        diferencia /
-        86400000
+        diferencia / 86400000
     );
 
 
     const horas =
     Math.floor(
-        (
-            diferencia %
-            86400000
-        )
+        (diferencia % 86400000)
         /
         3600000
     );
@@ -3217,10 +2789,7 @@ function comprobarFecha(){
 
     const minutos =
     Math.floor(
-        (
-            diferencia %
-            3600000
-        )
+        (diferencia % 3600000)
         /
         60000
     );
@@ -3228,10 +2797,7 @@ function comprobarFecha(){
 
     const segundos =
     Math.floor(
-        (
-            diferencia %
-            60000
-        )
+        (diferencia % 60000)
         /
         1000
     );
@@ -3247,24 +2813,21 @@ function comprobarFecha(){
     ${horas} h ·
     ${minutos} min ·
     ${segundos} s
-    <br><br>
-    ❤️
     `;
 
 }
 
 
+comprobarFecha();
+
 setInterval(
-comprobarFecha,
-1000
+    comprobarFecha,
+    1000
 );
 
 
-comprobarFecha();
-
-
 /* =========================================================
-   ABRIR REGALO
+   ABRIR EL REGALO
 ========================================================= */
 
 let regaloAbierto =
@@ -3283,9 +2846,7 @@ function abrirRegalo(){
 
 
     const sobre =
-    document.getElementById(
-        "sobre"
-    );
+    document.getElementById("sobre");
 
 
     sobre.classList.add(
@@ -3296,10 +2857,9 @@ function abrirRegalo(){
     /* =====================================================
        MÚSICA
 
-       SOLO EMPIEZA AL TOCAR EL SOBRE.
-
-       loop = AL TERMINAR,
-       VUELVE A COMENZAR AUTOMÁTICAMENTE.
+       Solo empieza aquí.
+       No existe autoplay.
+       loop hace que vuelva a comenzar al terminar.
     ===================================================== */
 
 
@@ -3314,18 +2874,16 @@ function abrirRegalo(){
     musica.play()
     .catch(
         error=>{
-
             console.log(
-                "No se pudo iniciar la música:",
+                "El navegador no pudo iniciar el audio:",
                 error
             );
-
         }
     );
 
 
     lanzarCorazones(
-        32
+        25
     );
 
 
@@ -3343,30 +2901,23 @@ function abrirRegalo(){
             "block";
 
 
-            volverCartaFlotante.style.display =
+            botonVolver.style.display =
             "block";
 
 
-            activarRevelado();
+            iniciarObservador();
 
 
             actualizarTiempoJuntos();
 
 
-            document
-            .getElementById(
+            irA(
                 "carta"
-            )
-            .scrollIntoView({
-
-                behavior:
-                "smooth"
-
-            });
+            );
 
         },
 
-        900
+        850
 
     );
 
@@ -3374,30 +2925,81 @@ function abrirRegalo(){
 
 
 /* =========================================================
-   TIEMPO JUNTOS
+   NAVEGACIÓN
 ========================================================= */
 
-function sumarMeses(
-fecha,
-cantidad
-){
+function irA(id){
 
-    const resultado =
-    new Date(fecha);
+    const elemento =
+    document.getElementById(id);
 
 
-    resultado.setMonth(
-        resultado.getMonth() +
-        cantidad
-    );
+    if(!elemento){
+        return;
+    }
 
 
-    return resultado;
+    elemento.scrollIntoView({
+
+        behavior:
+        "smooth",
+
+        block:
+        "start"
+
+    });
 
 }
 
 
-function calcularMesesCompletos(
+/* =========================================================
+   CONTADOR DE RELACIÓN
+========================================================= */
+
+function agregarMeses(
+fecha,
+cantidad
+){
+
+    const copia =
+    new Date(fecha);
+
+
+    const diaOriginal =
+    copia.getDate();
+
+
+    copia.setDate(1);
+
+
+    copia.setMonth(
+        copia.getMonth() +
+        cantidad
+    );
+
+
+    const ultimoDia =
+    new Date(
+        copia.getFullYear(),
+        copia.getMonth() + 1,
+        0
+    ).getDate();
+
+
+    copia.setDate(
+        Math.min(
+            diaOriginal,
+            ultimoDia
+        )
+    );
+
+
+    return copia;
+
+}
+
+
+function mesesCompletos(
 inicioRelacion,
 ahora
 ){
@@ -3409,11 +3011,7 @@ ahora
         inicioRelacion.getFullYear()
     )
 
-    *
-
-    12
-
-    +
+    * 12 +
 
     (
         ahora.getMonth() -
@@ -3421,16 +3019,11 @@ ahora
     );
 
 
-    const candidato =
-    sumarMeses(
-        inicioRelacion,
-        meses
-    );
-
-
     if(
-        candidato >
-        ahora
+        agregarMeses(
+            inicioRelacion,
+            meses
+        ) > ahora
     ){
 
         meses--;
@@ -3456,75 +3049,72 @@ function actualizarTiempoJuntos(){
         ahora <
         fechaInicioRelacion
     ){
-
         return;
-
     }
 
 
     const meses =
-    calcularMesesCompletos(
+    mesesCompletos(
         fechaInicioRelacion,
         ahora
     );
 
 
-    const inicioMesActual =
-    sumarMeses(
+    const inicioPeriodo =
+    agregarMeses(
         fechaInicioRelacion,
         meses
     );
 
 
     const siguienteMes =
-    sumarMeses(
+    agregarMeses(
         fechaInicioRelacion,
         meses + 1
     );
 
 
-    let restante =
-
+    let diferencia =
     ahora -
-    inicioMesActual;
+    inicioPeriodo;
 
 
     const dias =
     Math.floor(
-        restante /
+        diferencia /
         86400000
     );
 
 
-    restante %=
+    diferencia %=
     86400000;
 
 
     const horas =
     Math.floor(
-        restante /
+        diferencia /
         3600000
     );
 
 
-    restante %=
+    diferencia %=
     3600000;
 
 
     const minutos =
     Math.floor(
-        restante /
+        diferencia /
         60000
     );
 
 
-    restante %=
+    diferencia %=
     60000;
 
 
     const segundos =
     Math.floor(
-        restante /
+        diferencia /
         1000
     );
 
@@ -3532,85 +3122,53 @@ function actualizarTiempoJuntos(){
     document.getElementById(
         "mesesJuntos"
     ).textContent =
-
-    String(
-        meses
-    ).padStart(
-        2,
-        "0"
-    );
+    String(meses).padStart(2,"0");
 
 
     document.getElementById(
         "diasJuntos"
     ).textContent =
-
-    String(
-        dias
-    ).padStart(
-        2,
-        "0"
-    );
+    String(dias).padStart(2,"0");
 
 
     document.getElementById(
         "horasJuntos"
     ).textContent =
-
-    String(
-        horas
-    ).padStart(
-        2,
-        "0"
-    );
+    String(horas).padStart(2,"0");
 
 
     document.getElementById(
         "minutosJuntos"
     ).textContent =
-
-    String(
-        minutos
-    ).padStart(
-        2,
-        "0"
-    );
+    String(minutos).padStart(2,"0");
 
 
     document.getElementById(
         "segundosJuntos"
     ).textContent =
-
-    String(
-        segundos
-    ).padStart(
-        2,
-        "0"
-    );
+    String(segundos).padStart(2,"0");
 
 
-    const duracionMes =
+    const totalPeriodo =
     siguienteMes -
-    inicioMesActual;
+    inicioPeriodo;
 
 
     const transcurrido =
     ahora -
-    inicioMesActual;
+    inicioPeriodo;
 
 
     const porcentaje =
 
-    Math.min(
-        100,
-        Math.max(
-            0,
+    Math.max(
+        0,
+        Math.min(
+            100,
             (
                 transcurrido /
-                duracionMes
-            )
-            *
-            100
+                totalPeriodo
+            ) * 100
         )
     );
 
@@ -3618,13 +3176,11 @@ function actualizarTiempoJuntos(){
     document.getElementById(
         "barraMes"
     ).style.width =
-
-    porcentaje +
-    "%";
+    porcentaje + "%";
 
 
     document.getElementById(
-        "textoProgresoMes"
+        "textoProgreso"
     ).textContent =
 
     `Camino a nuestro mes número ${meses + 1}`;
@@ -3632,65 +3188,159 @@ function actualizarTiempoJuntos(){
 }
 
 
+actualizarTiempoJuntos();
+
 setInterval(
-actualizarTiempoJuntos,
-1000
+    actualizarTiempoJuntos,
+    1000
 );
-
-
-/* =========================================================
-   NAVEGACIÓN
-========================================================= */
-
-function irA(id){
-
-    document
-    .getElementById(id)
-    .scrollIntoView({
-
-        behavior:
-        "smooth"
-
-    });
-
-}
-
-
-function volverCarta(){
-
-    irA(
-        "carta"
-    );
-
-}
 
 
 /* =========================================================
    RAZONES
 ========================================================= */
 
-function abrirRazon(
-elemento
-){
+const razones = [
 
-    elemento.classList.toggle(
-        "abierta"
+{
+titulo:"1. Por tu sonrisa",
+texto:"Porque una sonrisa tuya puede cambiar completamente mi día."
+},
+
+{
+titulo:"2. Por tu manera de ser",
+texto:"Porque eres tú, con tus virtudes, tu carácter, tus ocurrencias y todas esas pequeñas cosas que te hacen diferente."
+},
+
+{
+titulo:"3. Porque contigo puedo ser yo",
+texto:"Porque a tu lado puedo mostrarme tal como soy y sentir que no necesito ser alguien diferente."
+},
+
+{
+titulo:"4. Por nuestros recuerdos",
+texto:"Porque en solamente seis meses ya hemos creado momentos que no cambiaría por nada."
+},
+
+{
+titulo:"5. Porque me importan tus sueños",
+texto:"Porque quiero verte crecer, cumplir tus metas y sentirte orgullosa de todo aquello que eres capaz de conseguir."
+},
+
+{
+titulo:"6. Porque haces especial lo cotidiano",
+texto:"Porque contigo incluso un momento sencillo puede convertirse en un recuerdo especial."
+},
+
+{
+titulo:"7. Porque me encanta conocerte",
+texto:"Porque siento que todavía tengo muchísimo que descubrir de ti y quiero seguir haciéndolo."
+},
+
+{
+titulo:"8. Porque me haces imaginar el futuro",
+texto:"Porque cuando pienso en nuevas experiencias, aventuras y recuerdos, muchas veces te imagino a mi lado."
+},
+
+{
+titulo:"9. Porque eres mi Kory",
+texto:"Porque no existe otra persona con tu historia, tu manera de mirar, tu forma de reír y todo aquello que te hace ser tú."
+},
+
+{
+titulo:"10. Porque estos seis meses me hacen querer muchos más contigo",
+texto:"Porque esto apenas comienza y quiero seguir creando nuevas historias, nuevos recuerdos y nuevos capítulos contigo."
+}
+
+];
+
+
+function crearRazones(){
+
+    const lista =
+    document.getElementById(
+        "listaRazones"
     );
 
 
-    if(
-        elemento.classList.contains(
-            "abierta"
-        )
-    ){
+    razones.forEach(
+        razon=>{
 
-        lanzarCorazones(
-            3
-        );
 
-    }
+            const tarjeta =
+            document.createElement(
+                "div"
+            );
+
+
+            tarjeta.className =
+            "razon revelar";
+
+
+            tarjeta.innerHTML =
+
+            `
+            <div class="iconoRazon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                    d="M12 21s-7.2-4.5-9.4-8.5C.4 8.7 2.1 4.5 6.3 4.1c2.3-.2 4.2 1.1 5.7 3 1.5-1.9 3.4-3.2 5.7-3 4.2.4 5.9 4.6 3.7 8.4C19.2 16.5 12 21 12 21z"/>
+
+                </svg>
+
+            </div>
+
+            <h3>
+                ${razon.titulo}
+            </h3>
+
+            <div class="pistaRazon">
+                Toca para descubrir
+            </div>
+
+            <p class="textoRazon">
+                ${razon.texto}
+            </p>
+            `;
+
+
+            tarjeta.addEventListener(
+                "click",
+                ()=>{
+
+                    tarjeta.classList.toggle(
+                        "abierta"
+                    );
+
+
+                    if(
+                        tarjeta.classList.contains(
+                            "abierta"
+                        )
+                    ){
+
+                        lanzarCorazones(
+                            2
+                        );
+
+                    }
+
+                }
+            );
+
+
+            lista.appendChild(
+                tarjeta
+            );
+
+        }
+    );
 
 }
+
+
+crearRazones();
 
 
 /* =========================================================
@@ -3700,7 +3350,6 @@ elemento
 function respuestaFinal(){
 
     const sorpresa =
-
     document.getElementById(
         "sorpresa"
     );
@@ -3711,22 +3360,19 @@ function respuestaFinal(){
 
 
     lanzarCorazones(
-        140
+        110
     );
 
 
     for(
         let i = 0;
-        i < 32;
+        i < 25;
         i++
     ){
 
         setTimeout(
-
             crearPetalo,
-
-            i * 105
-
+            i * 120
         );
 
     }
@@ -3747,7 +3393,7 @@ function respuestaFinal(){
 
         },
 
-        400
+        350
 
     );
 
@@ -3760,18 +3406,7 @@ function respuestaFinal(){
 
 function crearCorazon(){
 
-    const corazones = [
-
-        "♥",
-        "♡",
-        "♥",
-        "♡"
-
-    ];
-
-
     const corazon =
-
     document.createElement(
         "div"
     );
@@ -3781,56 +3416,45 @@ function crearCorazon(){
     "corazonFlotante";
 
 
-    corazon.innerHTML =
-
-    corazones[
-        Math.floor(
-            Math.random() *
-            corazones.length
-        )
-    ];
+    corazon.textContent =
+    Math.random() > .5
+    ?
+    "♥"
+    :
+    "♡";
 
 
     corazon.style.left =
-
     Math.random() *
     100 +
-
     "vw";
 
 
     corazon.style.fontSize =
-
     (
-        18 +
+        17 +
         Math.random() *
-        28
+        25
     )
-
     +
-
     "px";
 
 
     corazon.style.color =
-
     Math.random() > .5
     ?
-    "#ff7fa8"
+    "#ff7ba5"
     :
     "#ffd1df";
 
 
     corazon.style.animationDuration =
-
     (
         5 +
         Math.random() *
         4
     )
-
     +
-
     "s";
 
 
@@ -3841,11 +3465,8 @@ function crearCorazon(){
 
     setTimeout(
         ()=>{
-
             corazon.remove();
-
         },
-
         9500
     );
 
@@ -3863,14 +3484,107 @@ cantidad
     ){
 
         setTimeout(
-
             crearCorazon,
-
             i * 65
-
         );
 
     }
+
+}
+
+
+/* =========================================================
+   PÉTALOS
+========================================================= */
+
+let petalosIniciados =
+false;
+
+
+function crearPetalo(){
+
+    const elemento =
+    document.createElement(
+        "div"
+    );
+
+
+    elemento.className =
+    "petalo";
+
+
+    const petalos = [
+        "🌸",
+        "🌹",
+        "🌷"
+    ];
+
+
+    elemento.textContent =
+    petalos[
+        Math.floor(
+            Math.random() *
+            petalos.length
+        )
+    ];
+
+
+    elemento.style.left =
+    Math.random() *
+    100 +
+    "vw";
+
+
+    elemento.style.fontSize =
+    (
+        11 +
+        Math.random() *
+        11
+    )
+    +
+    "px";
+
+
+    elemento.style.animationDuration =
+    (
+        9 +
+        Math.random() *
+        8
+    )
+    +
+    "s";
+
+
+    document.body.appendChild(
+        elemento
+    );
+
+
+    setTimeout(
+        ()=>{
+            elemento.remove();
+        },
+        18000
+    );
+
+}
+
+
+function iniciarPetalos(){
+
+    if(petalosIniciados){
+        return;
+    }
+
+
+    petalosIniciados =
+    true;
+
+
+    setInterval(
+        crearPetalo,
+        2400
+    );
 
 }
 
@@ -3882,7 +3596,6 @@ cantidad
 function crearEstrellas(){
 
     const fondo =
-
     document.getElementById(
         "estrellas"
     );
@@ -3890,12 +3603,11 @@ function crearEstrellas(){
 
     for(
         let i = 0;
-        i < 55;
+        i < 50;
         i++
     ){
 
         const estrella =
-
         document.createElement(
             "div"
         );
@@ -3906,46 +3618,36 @@ function crearEstrellas(){
 
 
         const tamaño =
-
+        1 +
         Math.random() *
-        2.5 +
-
-        1;
+        2.3;
 
 
         estrella.style.width =
-
         tamaño +
         "px";
 
 
         estrella.style.height =
-
         tamaño +
         "px";
 
 
         estrella.style.left =
-
         Math.random() *
         100 +
-
         "%";
 
 
         estrella.style.top =
-
         Math.random() *
         100 +
-
         "%";
 
 
         estrella.style.animationDelay =
-
         Math.random() *
         5 +
-
         "s";
 
 
@@ -3962,196 +3664,78 @@ crearEstrellas();
 
 
 /* =========================================================
-   PÉTALOS
+   ANIMACIONES AL HACER SCROLL
 ========================================================= */
 
-function crearPetalo(){
-
-    const petalo =
-
-    document.createElement(
-        "div"
-    );
+let observer;
 
 
-    petalo.className =
-    "petalo";
-
-
-    const petalos = [
-
-        "🌸",
-        "🌹",
-        "🌷"
-
-    ];
-
-
-    petalo.innerHTML =
-
-    petalos[
-        Math.floor(
-            Math.random() *
-            petalos.length
-        )
-    ];
-
-
-    petalo.style.left =
-
-    Math.random() *
-    100 +
-
-    "vw";
-
-
-    petalo.style.fontSize =
-
-    (
-        11 +
-        Math.random() *
-        12
-    )
-
-    +
-
-    "px";
-
-
-    petalo.style.animationDuration =
-
-    (
-        9 +
-        Math.random() *
-        8
-    )
-
-    +
-
-    "s";
-
-
-    document.body.appendChild(
-        petalo
-    );
-
-
-    setTimeout(
-        ()=>{
-
-            petalo.remove();
-
-        },
-
-        18000
-    );
-
-}
-
-
-let petalosActivos =
-false;
-
-
-function iniciarPetalos(){
-
-    if(
-        petalosActivos
-    ){
-
-        return;
-
-    }
-
-
-    petalosActivos =
-    true;
-
-
-    setInterval(
-        crearPetalo,
-        2300
-    );
-
-}
-
-
-/* =========================================================
-   REVELADO AL HACER SCROLL
-========================================================= */
-
-let observador;
-
-
-function activarRevelado(){
+function iniciarObservador(){
 
     const elementos =
-
     document.querySelectorAll(
         ".revelar"
     );
 
 
-    observador =
-
+    observer =
     new IntersectionObserver(
 
         entradas=>{
 
             entradas.forEach(
-
                 entrada=>{
 
                     if(
                         entrada.isIntersecting
                     ){
 
-                        entrada.target
-                        .classList.add(
+                        entrada.target.classList.add(
                             "visible"
                         );
 
 
-                        observador
-                        .unobserve(
+                        observer.unobserve(
                             entrada.target
                         );
 
                     }
 
                 }
-
             );
 
         },
 
         {
-            threshold:.13
+            threshold:.10
         }
 
     );
 
 
     elementos.forEach(
-
         elemento=>{
 
-            observador.observe(
+            observer.observe(
                 elemento
             );
 
         }
-
     );
 
 }
 
 
 /* =========================================================
-   FOTOS JPG / JPEG / PNG
+   CARGAR FOTOS AUTOMÁTICAMENTE
+
+   Soporta:
+   .jpg
+   .jpeg
+   .png
 ========================================================= */
 
-function cargarImagen(
+function cargarFoto(
 img
 ){
 
@@ -4171,34 +3755,30 @@ img
     ];
 
 
-    let posicion =
+    let indice =
     0;
 
 
     function probar(){
 
         if(
-            posicion >=
+            indice >=
             extensiones.length
         ){
 
-            img.alt =
-            "No se pudo cargar esta fotografía";
+            img.style.display =
+            "none";
 
             return;
         }
 
 
         const ruta =
-
         base +
-        extensiones[
-            posicion
-        ];
+        extensiones[indice];
 
 
         const prueba =
-
         new Image();
 
 
@@ -4214,7 +3794,7 @@ img
         prueba.onerror =
         ()=>{
 
-            posicion++;
+            indice++;
 
             probar();
 
@@ -4237,7 +3817,7 @@ document
     "img[data-base]"
 )
 .forEach(
-    cargarImagen
+    cargarFoto
 );
 
 </script>
